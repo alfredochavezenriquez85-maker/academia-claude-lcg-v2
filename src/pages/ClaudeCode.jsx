@@ -70,7 +70,7 @@ export default function ClaudeCode() {
   const resources = [
     { label: 'Página de producto', url: 'https://www.anthropic.com/product/claude-code', desc: 'Descripción oficial de Claude Code por Anthropic.', color: '#8B5CF6' },
     { label: 'Documentación completa', url: 'https://code.claude.com/docs/en/overview', desc: 'Referencia técnica completa: comandos, configuración, MCP, hooks, skills.', color: '#0EA5E9' },
-    { label: 'Curso: Claude Code in Action', url: 'https://anthropic.skilljar.com/claude-code-in-action', desc: 'Arquitectura de asistentes de código, contexto, comandos, MCP, GitHub. ~3 horas.', color: '#00C853' },
+    { label: 'Curso: Claude Code in Action', url: 'https://anthropic.skilljar.com/claude-code-in-action', desc: 'Arquitectura de asistentes de código, contexto, comandos, MCP, GitHub. ~3 horas.', color: '#4CB882' },
     { label: 'Curso: Agent Skills', url: 'https://anthropic.skilljar.com/introduction-to-agent-skills', desc: 'Crear y compartir Skills reutilizables en Claude Code. ~1 hora.', color: '#F59E0B' },
     { label: 'Curso: Subagents', url: 'https://anthropic.skilljar.com/introduction-to-subagents', desc: 'Sub-agentes para delegar tareas y gestionar contexto. ~20 minutos.', color: '#EF4444' },
     { label: 'DeepLearning.AI: Agent Skills', url: 'https://www.deeplearning.ai/short-courses/agent-skills-with-anthropic/', desc: 'Curso con Andrew Ng sobre Agent Skills: crear, compartir y desplegar skills reutilizables.', color: '#8B5CF6' },
@@ -92,7 +92,7 @@ export default function ClaudeCode() {
         {[
           { n: '~30', l: 'Consultores en sesión', s: 'Sesión del 10 abril 2026', c: '#8B5CF6' },
           { n: '50%', l: 'Ya tienen Claude', s: '16 de 30 conectados', c: '#0EA5E9' },
-          { n: '20%', l: 'Usan Claude Code', s: '~6 consultores activos', c: '#00C853' },
+          { n: '20%', l: 'Usan Claude Code', s: '~6 consultores activos', c: '#4CB882' },
           { n: '80%', l: 'Oportunidad', s: 'Consultores por activar', c: '#F59E0B' },
         ].map((s, i) => (
           <div key={i} style={{
@@ -142,13 +142,13 @@ export default function ClaudeCode() {
       {/* Quotes */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 16, marginBottom: 36 }}>
         <div style={{
-          background: '#00C85308', border: '1px solid #00C85320', borderRadius: 14, padding: 24,
+          background: '#4CB88208', border: '1px solid #4CB88220', borderRadius: 14, padding: 24,
         }}>
-          <div style={{ fontSize: 28, color: '#00C853', fontWeight: 800, marginBottom: 8 }}>"</div>
+          <div style={{ fontSize: 28, color: '#4CB882', fontWeight: 800, marginBottom: 8 }}>"</div>
           <p style={{ fontSize: 14, fontStyle: 'italic', lineHeight: 1.7, margin: '0 0 12px', color: 'var(--t1)' }}>
             Nosotros nos estamos convirtiendo en editores, no en espectadores. Tenemos que revisar la información, agregar nuestro conocimiento e intuición que ninguna IA tiene hoy.
           </p>
-          <div style={{ fontSize: 13, fontWeight: 700, color: '#00C853' }}>— Jaime Restrepo</div>
+          <div style={{ fontSize: 13, fontWeight: 700, color: '#4CB882' }}>— Jaime Restrepo</div>
         </div>
         <div style={{
           background: '#8B5CF608', border: '1px solid #8B5CF620', borderRadius: 14, padding: 24,

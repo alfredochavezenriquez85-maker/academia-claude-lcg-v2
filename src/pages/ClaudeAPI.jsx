@@ -56,7 +56,7 @@ export default function ClaudeAPI() {
 
   const resources = [
     { label: 'Documentación API', url: 'https://platform.claude.com/docs/en/home', desc: 'Referencia completa: Messages API, tool use, streaming, caching, batch, structured output.', color: '#0EA5E9' },
-    { label: 'Curso: Building with the Claude API', url: 'https://anthropic.skilljar.com/claude-with-the-anthropic-api', desc: 'El curso más completo de Anthropic Academy: tool use, streaming, RAG, MCP, apps con Claude. ~8 horas.', color: '#00C853' },
+    { label: 'Curso: Building with the Claude API', url: 'https://anthropic.skilljar.com/claude-with-the-anthropic-api', desc: 'El curso más completo de Anthropic Academy: tool use, streaming, RAG, MCP, apps con Claude. ~8 horas.', color: '#4CB882' },
     { label: 'Prompt Engineering Guide', url: 'https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview', desc: 'Guía oficial de prompting: técnicas, best practices, structured output, evaluaciones.', color: '#8B5CF6' },
     { label: 'SDK Python', url: 'https://github.com/anthropics/anthropic-sdk-python', desc: 'Repositorio oficial del SDK de Python. Instalación, ejemplos, documentación.', color: '#F59E0B' },
     { label: 'Anthropic Cookbook', url: 'https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview', desc: 'Recetas y ejemplos prácticos para construir con Claude: RAG, agents, clasificación, extracción.', color: '#EF4444' },
@@ -183,12 +183,12 @@ export default function ClaudeAPI() {
           <div>client = anthropic.Anthropic()</div>
           <div>&nbsp;</div>
           <div>message = client.messages.create(</div>
-          <div>    model=<span style={{ color: '#00C853' }}>"claude-sonnet-4-6"</span>,</div>
+          <div>    model=<span style={{ color: '#4CB882' }}>"claude-sonnet-4-6"</span>,</div>
           <div>    max_tokens=<span style={{ color: '#0EA5E9' }}>1024</span>,</div>
-          <div>    system=<span style={{ color: '#00C853' }}>"Eres un consultor experto de LCG..."</span>,</div>
+          <div>    system=<span style={{ color: '#4CB882' }}>"Eres un consultor experto de LCG..."</span>,</div>
           <div>    messages=[</div>
-          <div>        {'{'}<span style={{ color: '#00C853' }}>"role"</span>: <span style={{ color: '#00C853' }}>"user"</span>,</div>
-          <div>         <span style={{ color: '#00C853' }}>"content"</span>: <span style={{ color: '#00C853' }}>"Analiza estos KPIs..."</span>{'}'},</div>
+          <div>        {'{'}<span style={{ color: '#4CB882' }}>"role"</span>: <span style={{ color: '#4CB882' }}>"user"</span>,</div>
+          <div>         <span style={{ color: '#4CB882' }}>"content"</span>: <span style={{ color: '#4CB882' }}>"Analiza estos KPIs..."</span>{'}'},</div>
           <div>    ]</div>
           <div>)</div>
           <div>&nbsp;</div>

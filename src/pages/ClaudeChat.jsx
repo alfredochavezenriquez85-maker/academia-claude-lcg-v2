@@ -42,7 +42,7 @@ export default function ClaudeChat() {
   ]
 
   const resources = [
-    { label: 'Ir a Claude.ai', url: 'https://claude.ai', desc: 'Accede a la interfaz web directamente.', color: '#00C853' },
+    { label: 'Ir a Claude.ai', url: 'https://claude.ai', desc: 'Accede a la interfaz web directamente.', color: '#4CB882' },
     { label: 'Página de producto', url: 'https://www.anthropic.com/product/claude', desc: 'Descripción oficial de Claude por Anthropic.', color: '#8B5CF6' },
     { label: 'Curso Claude 101', url: 'https://anthropic.skilljar.com/claude-101', desc: 'Primeros pasos: prompting, proyectos, artefactos, skills, Deep Research. ~2 horas.', color: '#0EA5E9' },
     { label: 'Video: Future of AI at Work', url: 'https://www.anthropic.com/webinars/future-of-ai-at-work-introducing-cowork', desc: 'Webinar de Anthropic: flujo Chat → Code → Cowork y el futuro del trabajo con IA.', color: '#F59E0B' },
@@ -51,7 +51,7 @@ export default function ClaudeChat() {
   return (
     <div>
       <h1 style={{ fontSize: 32, fontWeight: 800, marginBottom: 8 }}>Claude.ai — Chat</h1>
-      <div style={{ display: 'inline-block', padding: '4px 14px', borderRadius: 20, background: '#00C85310', border: '1px solid #00C85330', color: '#00C853', fontSize: 12, fontWeight: 700, marginBottom: 16 }}>
+      <div style={{ display: 'inline-block', padding: '4px 14px', borderRadius: 20, background: '#4CB88210', border: '1px solid #4CB88230', color: '#4CB882', fontSize: 12, fontWeight: 700, marginBottom: 16 }}>
         INTERFAZ PRINCIPAL · Web + Móvil
       </div>
       <p style={{ fontSize: 16, color: 'var(--t2)', marginBottom: 32, maxWidth: 680, lineHeight: 1.7 }}>
@@ -75,7 +75,7 @@ export default function ClaudeChat() {
             'Recomendación del equipo: ChatGPT gratis para cosas rápidas (reescribir un correo). Claude para trabajo serio de consultoría.',
           ].map((item, i) => (
             <div key={i} style={{ display: 'flex', gap: 10, fontSize: 14, opacity: 0.8, lineHeight: 1.6 }}>
-              <span style={{ color: '#00C853', fontWeight: 700, flexShrink: 0 }}>→</span>
+              <span style={{ color: '#4CB882', fontWeight: 700, flexShrink: 0 }}>→</span>
               {item}
             </div>
           ))}
@@ -90,14 +90,14 @@ export default function ClaudeChat() {
         {features.map((f, i) => (
           <div key={i} style={{
             background: 'var(--card)', borderRadius: 14, padding: 28,
-            border: '1px solid var(--border)', borderLeft: '4px solid #00C853',
+            border: '1px solid var(--border)', borderLeft: '4px solid #4CB882',
           }}>
             <h4 style={{ margin: '0 0 8px', fontSize: 17, fontWeight: 800 }}>{f.title}</h4>
             <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: '0 0 14px' }}>{f.desc}</p>
             <div style={{
-              background: '#00C85308', border: '1px solid #00C85320',
+              background: '#4CB88208', border: '1px solid #4CB88220',
               borderRadius: 8, padding: '10px 16px',
-              fontSize: 13, color: '#00913A', fontWeight: 600, lineHeight: 1.6,
+              fontSize: 13, color: '#358764', fontWeight: 600, lineHeight: 1.6,
             }}>
               Tip LCG: {f.tip}
             </div>
@@ -116,7 +116,7 @@ export default function ClaudeChat() {
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 12 }}>
           {[
-            { step: '1. Chat', desc: 'Conceptualizar, planificar, investigar con Deep Research, definir el proyecto', color: '#00C853' },
+            { step: '1. Chat', desc: 'Conceptualizar, planificar, investigar con Deep Research, definir el proyecto', color: '#4CB882' },
             { step: '2. Code', desc: 'Ejecutar: procesar archivos, generar entregables, push a GitHub', color: '#8B5CF6' },
             { step: '3. Cowork', desc: 'Trabajo con archivos locales sin terminal — para no-developers', color: '#0EA5E9' },
             { step: '4. Managed Agents', desc: 'Ejecución autónoma en la nube a escala — agentes 24/7', color: '#F59E0B' },
@@ -144,7 +144,7 @@ export default function ClaudeChat() {
           }}>
             <h4 style={{ margin: '0 0 8px', fontSize: 15, fontWeight: 700 }}>{uc.title}</h4>
             <p style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.6, margin: '0 0 10px' }}>{uc.desc}</p>
-            <div style={{ fontSize: 11, fontWeight: 700, color: '#00C853', textTransform: 'uppercase', letterSpacing: 1 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: '#4CB882', textTransform: 'uppercase', letterSpacing: 1 }}>
               {uc.interface}
             </div>
           </div>
@@ -153,14 +153,14 @@ export default function ClaudeChat() {
 
       {/* Quote */}
       <div style={{
-        background: '#00C85308', border: '1px solid #00C85320', borderRadius: 14,
+        background: '#4CB88208', border: '1px solid #4CB88220', borderRadius: 14,
         padding: 28, marginBottom: 36,
       }}>
-        <div style={{ fontSize: 28, color: '#00C853', fontWeight: 800, marginBottom: 8 }}>"</div>
+        <div style={{ fontSize: 28, color: '#4CB882', fontWeight: 800, marginBottom: 8 }}>"</div>
         <p style={{ fontSize: 15, fontStyle: 'italic', lineHeight: 1.7, margin: '0 0 12px', color: 'var(--t1)' }}>
           Nosotros nos estamos convirtiendo en editores, no en espectadores. Tenemos que revisar la información, agregar nuestro conocimiento e intuición que ninguna IA tiene hoy.
         </p>
-        <div style={{ fontSize: 13, fontWeight: 700, color: '#00C853' }}>— Jaime Restrepo, LCG</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: '#4CB882' }}>— Jaime Restrepo, LCG</div>
       </div>
 
       {/* Resources */}

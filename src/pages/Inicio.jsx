@@ -14,14 +14,14 @@ export default function Inicio() {
         <div style={{
           position: 'absolute', top: -60, right: -60,
           width: 300, height: 300, borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(0,200,83,0.12) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(76,184,130,0.12) 0%, transparent 70%)',
         }} />
         <div style={{ position: 'relative' }}>
           <img src={`${import.meta.env.BASE_URL}logo-light.png`} alt="London Consulting Group" style={{ height: 40, objectFit: 'contain' }} />
           <h1 style={{ margin: 0, fontSize: 42, fontWeight: 800, lineHeight: 1.1, maxWidth: 600 }}>
             Academia de IA
             <br />
-            <span style={{ color: '#00C853' }}>con Claude</span>
+            <span style={{ color: '#4CB882' }}>con Claude</span>
           </h1>
           <p style={{ fontSize: 17, opacity: 0.6, marginTop: 16, maxWidth: 520, lineHeight: 1.6 }}>
             Portal interno de capacitación para consultores y directores.
@@ -30,7 +30,7 @@ export default function Inicio() {
           <div style={{ display: 'flex', gap: 12, marginTop: 28, flexWrap: 'wrap' }}>
             <button onClick={() => navigate('/que-es-claude')} style={{
               padding: '12px 28px', borderRadius: 10, border: 'none',
-              background: '#00C853', color: '#fff', fontSize: 14, fontWeight: 700,
+              background: '#4CB882', color: '#fff', fontSize: 14, fontWeight: 700,
               cursor: 'pointer',
             }}>Empezar a aprender →</button>
             <button onClick={() => navigate('/capacitacion')} style={{
@@ -48,7 +48,7 @@ export default function Inicio() {
         {[
           { n: '3', l: 'Modelos disponibles', s: 'Opus · Sonnet · Haiku', c: '#8B5CF6' },
           { n: '5', l: 'Interfaces de uso', s: 'Claude.ai · Cowork · Code · API · Managed Agents', c: '#0EA5E9' },
-          { n: '10', l: 'Cursos oficiales', s: 'Anthropic Academy (gratuitos)', c: '#00C853' },
+          { n: '10', l: 'Cursos oficiales', s: 'Anthropic Academy (gratuitos)', c: '#4CB882' },
           { n: '12+', l: 'Casos de uso LCG', s: 'Diagnóstico → Implementación', c: '#F59E0B' },
         ].map((s, i) => (
           <div key={i} style={{

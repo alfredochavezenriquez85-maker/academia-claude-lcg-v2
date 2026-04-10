@@ -53,7 +53,7 @@ export default function Sidebar() {
         <div style={{
           fontSize: 17,
           fontWeight: 700,
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: "'Manrope', sans-serif",
           color: '#fff',
           marginTop: 12,
         }}>
@@ -90,8 +90,8 @@ export default function Sidebar() {
                   borderRadius: 8,
                   fontSize: 12.5,
                   fontWeight: isActive ? 700 : 500,
-                  color: isActive ? '#00C853' : 'rgba(255,255,255,0.5)',
-                  background: isActive ? 'rgba(0,200,83,0.1)' : 'transparent',
+                  color: isActive ? '#4CB882' : 'rgba(255,255,255,0.5)',
+                  background: isActive ? 'rgba(76,184,130,0.1)' : 'transparent',
                   textDecoration: 'none',
                   transition: 'all 0.15s',
                 })}
@@ -116,8 +116,8 @@ export default function Sidebar() {
             display: 'block',
             padding: '10px 14px',
             borderRadius: 8,
-            background: 'rgba(0,200,83,0.1)',
-            color: '#00C853',
+            background: 'rgba(76,184,130,0.1)',
+            color: '#4CB882',
             fontSize: 12,
             fontWeight: 700,
             textAlign: 'center',

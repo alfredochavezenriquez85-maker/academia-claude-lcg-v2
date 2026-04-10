@@ -1,6 +1,7 @@
 :root {
   /* Brand */
-  --lcg-green: #00C853;
+  --lcg-green: #4CB882;
+  --lcg-green-dark: #358764;
   --lcg-black: #1A1A1A;
 
   /* Surfaces */
@@ -35,7 +36,7 @@ html, body, #root {
 }
 
 body {
-  font-family: 'Abadi', 'Segoe UI', 'Calibri', sans-serif;
+  font-family: 'Manrope', 'Segoe UI', 'Calibri', sans-serif;
   background: var(--bg);
   color: var(--t1);
   -webkit-font-smoothing: antialiased;
@@ -43,11 +44,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
 }
 
 button {
-  font-family: 'Abadi', 'Segoe UI', 'Calibri', sans-serif;
+  font-family: 'Manrope', 'Segoe UI', 'Calibri', sans-serif;
 }
 
 a {

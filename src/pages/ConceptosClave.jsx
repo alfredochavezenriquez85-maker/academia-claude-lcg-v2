@@ -38,7 +38,7 @@ export default function ConceptosClave() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                 <span style={{
                   width: 8, height: 8, borderRadius: '50%',
-                  background: open === i ? '#00C853' : 'var(--border)',
+                  background: open === i ? '#4CB882' : 'var(--border)',
                   transition: 'background 0.2s', flexShrink: 0,
                 }} />
                 <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--t1)' }}>{c.term}</span>
@@ -53,9 +53,9 @@ export default function ConceptosClave() {
               <div style={{ padding: '0 24px 20px 44px' }}>
                 <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: '0 0 12px' }}>{c.def}</p>
                 <div style={{
-                  background: '#00C85310', border: '1px solid #00C85320',
+                  background: '#4CB88210', border: '1px solid #4CB88220',
                   borderRadius: 8, padding: '10px 16px',
-                  fontSize: 13, color: '#00913A', fontWeight: 600,
+                  fontSize: 13, color: '#358764', fontWeight: 600,
                 }}>
                   💡 Tip LCG: {c.tip}
                 </div>

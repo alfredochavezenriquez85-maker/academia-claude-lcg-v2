@@ -10,7 +10,7 @@ export default function QueEsClaude() {
         {[
           { title: 'Anthropic', desc: 'Empresa fundada en 2021 por ex-investigadores de OpenAI. Enfocada en seguridad de IA (AI Safety). Su modelo Claude se destaca por ser confiable, transparente y capaz de seguir instrucciones complejas.', color: '#8B5CF6' },
           { title: 'Claude vs. otros LLMs', desc: 'Claude se diferencia por su ventana de contexto masiva (~200K tokens), su capacidad de seguir instrucciones precisas, su enfoque en seguridad, y sus interfaces especializadas (Cowork, Code, Managed Agents).', color: '#0EA5E9' },
-          { title: '¿Por qué Claude para consultoría?', desc: 'Ventana de contexto para analizar documentos extensos, artefactos para generar entregables, proyectos para mantener contexto por cliente, y capacidad agéntica para automatizar flujos de trabajo completos.', color: '#00C853' },
+          { title: '¿Por qué Claude para consultoría?', desc: 'Ventana de contexto para analizar documentos extensos, artefactos para generar entregables, proyectos para mantener contexto por cliente, y capacidad agéntica para automatizar flujos de trabajo completos.', color: '#4CB882' },
         ].map((c, i) => (
           <div key={i} style={{
             background: 'var(--card)', borderRadius: 14, padding: 28,

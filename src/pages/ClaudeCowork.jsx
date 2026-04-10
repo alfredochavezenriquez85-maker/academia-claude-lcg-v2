@@ -53,7 +53,7 @@ export default function ClaudeCowork() {
 
   const resources = [
     { label: 'Página de producto', url: 'https://www.anthropic.com/product/claude-cowork', desc: 'Descripción oficial de Claude Cowork por Anthropic.', color: '#0EA5E9' },
-    { label: 'Curso: Introduction to Claude Cowork', url: 'https://anthropic.skilljar.com/introduction-to-claude-cowork', desc: 'Task loop, plugins, skills, flujos de archivos e investigación. ~1.5 horas.', color: '#00C853' },
+    { label: 'Curso: Introduction to Claude Cowork', url: 'https://anthropic.skilljar.com/introduction-to-claude-cowork', desc: 'Task loop, plugins, skills, flujos de archivos e investigación. ~1.5 horas.', color: '#4CB882' },
     { label: 'Webinar: Future of AI at Work', url: 'https://www.anthropic.com/webinars/future-of-ai-at-work-introducing-cowork', desc: 'Webinar oficial de Anthropic presentando Cowork y su visión del trabajo con IA.', color: '#8B5CF6' },
     { label: 'Tutorial DataCamp', url: 'https://www.datacamp.com/tutorial/claude-cowork-tutorial', desc: 'Tutorial práctico paso a paso de Claude Cowork por DataCamp.', color: '#F59E0B' },
     { label: 'Anuncio TechCrunch', url: 'https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/', desc: 'Artículo de TechCrunch sobre Cowork: "Claude Code sin el código".', color: '#EF4444' },

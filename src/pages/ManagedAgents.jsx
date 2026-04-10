@@ -102,7 +102,7 @@ export default function ManagedAgents() {
       <div style={{
         background: 'var(--card)', borderRadius: 14, padding: 28,
         border: '1px solid var(--border)', marginBottom: 36,
-        borderLeft: '4px solid #00C853',
+        borderLeft: '4px solid #4CB882',
       }}>
         <h3 style={{ margin: '0 0 12px', fontSize: 18, fontWeight: 800 }}>🏢 Relevancia para LCG</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -114,7 +114,7 @@ export default function ManagedAgents() {
             'Ofrecer como servicio a clientes: agentes personalizados para sus operaciones específicas.',
           ].map((item, i) => (
             <div key={i} style={{ display: 'flex', gap: 10, fontSize: 14, color: 'var(--t2)', lineHeight: 1.6 }}>
-              <span style={{ color: '#00C853', fontWeight: 700, flexShrink: 0 }}>→</span>
+              <span style={{ color: '#4CB882', fontWeight: 700, flexShrink: 0 }}>→</span>
               {item}
             </div>
           ))}
