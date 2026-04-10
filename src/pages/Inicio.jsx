@@ -113,10 +113,10 @@ export default function Inicio() {
       {/* CTA */}
       <div className="section section--dark" style={{ textAlign: 'center' }}>
         <div className="section__tag" style={{ marginLeft: 'auto', marginRight: 'auto' }}>Comienza hoy</div>
-        <h2 className="section__title" style={{ color: 'var(--t1)', maxWidth: 500, margin: '0 auto 16px' }}>
+        <h2 className="section__title" style={{ color: '#fff', maxWidth: 500, margin: '0 auto 16px' }}>
           Certif&iacute;cate en Anthropic Academy
         </h2>
-        <p style={{ fontSize: 15, color: 'var(--t2)', maxWidth: 480, margin: '0 auto 32px', lineHeight: 1.7 }}>
+        <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.45)', maxWidth: 480, margin: '0 auto 32px', lineHeight: 1.7 }}>
           Cursos gratuitos con certificado oficial. Desde Claude 101 hasta Managed Agents.
         </p>
         <a

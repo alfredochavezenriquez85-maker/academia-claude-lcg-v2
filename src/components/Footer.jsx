@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer__top">
         <div className="footer__brand">
           <img
-            src={`${import.meta.env.BASE_URL}logo-green.png`}
+            src={`${import.meta.env.BASE_URL}logo-light.png`}
             alt="London Consulting Group"
           />
           <p>

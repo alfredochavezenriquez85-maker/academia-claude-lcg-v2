@@ -20,13 +20,13 @@ export default function Certificaciones() {
           </div>
         </div>
 
-        <div style={{ background: 'var(--bg-cream)', borderRadius: 14, padding: 28, border: '1px solid var(--border)', color: 'var(--t1)' }}>
+        <div style={{ background: 'linear-gradient(135deg, #1A1A1A, #2D2D2D)', borderRadius: 14, padding: 28, border: '1px solid #333', color: '#fff' }}>
           <div style={{ fontSize: 36, marginBottom: 12 }}>🎖️</div>
           <h3 style={{ margin: '0 0 8px', fontSize: 18, fontWeight: 800 }}>Claude Certified Architect (CCA)</h3>
-          <p style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.7, margin: '0 0 16px' }}>
+          <p style={{ fontSize: 13, opacity: 0.7, lineHeight: 1.7, margin: '0 0 16px' }}>
             Primera certificación técnica formal de Anthropic. Examen proctored de 60 preguntas en 120 minutos.
           </p>
-          <div style={{ fontSize: 13, color: 'var(--t2)' }}>
+          <div style={{ fontSize: 13, opacity: 0.8 }}>
             <div style={{ marginBottom: 4 }}><span style={{ fontWeight: 700 }}>Costo:</span> $99 USD (gratis para primeros 5,000 partners)</div>
             <div style={{ marginBottom: 4 }}><span style={{ fontWeight: 700 }}>Requisito:</span> Unirse al Claude Partner Network</div>
             <div style={{ marginBottom: 4 }}><span style={{ fontWeight: 700 }}>Formato:</span> Proctored, cerrado, sin IA</div>
@@ -34,7 +34,7 @@ export default function Certificaciones() {
           </div>
           <a href="https://claude.com/partners" target="_blank" rel="noopener noreferrer" style={{
             display: 'inline-block', marginTop: 16, padding: '10px 24px', borderRadius: 8,
-            background: 'var(--lcg-green)', color: '#fff', fontSize: 13, fontWeight: 700, textDecoration: 'none',
+            background: '#C2185B', color: '#fff', fontSize: 13, fontWeight: 700, textDecoration: 'none',
           }}>Unirse al Partner Network ↗</a>
         </div>
       </div>

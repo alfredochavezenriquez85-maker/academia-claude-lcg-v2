@@ -297,22 +297,22 @@ with client.agents.sessions.turn(
         <h2 className="section__title">Pricing model</h2>
         <p className="section__desc">Pay-per-use pricing with three components. Idle and terminated session time is not billed.</p>
         <div style={{
-          background: 'var(--bg-cream)', borderRadius: 16, padding: 40,
-          border: '1px solid var(--border)', color: 'var(--t1)',
+          background: 'var(--lcg-black)', borderRadius: 16, padding: 40,
+          color: '#fff',
         }}>
           <div className="stats-row">
             <div>
-              <div style={{ color: 'var(--t2)', textTransform: 'uppercase', letterSpacing: 1, fontSize: 11, marginBottom: 8 }}>Tokens</div>
-              <div style={{ fontSize: 15, color: 'var(--t2)', lineHeight: 1.6 }}>Standard API pricing per model. Same rates as the Messages API.</div>
+              <div style={{ color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: 1, fontSize: 11, marginBottom: 8 }}>Tokens</div>
+              <div style={{ fontSize: 15, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>Standard API pricing per model. Same rates as the Messages API.</div>
             </div>
             <div>
-              <div style={{ color: 'var(--t2)', textTransform: 'uppercase', letterSpacing: 1, fontSize: 11, marginBottom: 8 }}>Runtime</div>
-              <div style={{ fontSize: 15, color: 'var(--t2)', lineHeight: 1.6 }}>Billed per millisecond, only while session status is "running".</div>
+              <div style={{ color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: 1, fontSize: 11, marginBottom: 8 }}>Runtime</div>
+              <div style={{ fontSize: 15, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>Billed per millisecond, only while session status is "running".</div>
             </div>
             <div>
-              <div style={{ color: 'var(--t2)', textTransform: 'uppercase', letterSpacing: 1, fontSize: 11, marginBottom: 8 }}>Web Search</div>
+              <div style={{ color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: 1, fontSize: 11, marginBottom: 8 }}>Web Search</div>
               <div className="stat__number" style={{ fontSize: 36 }}>$10</div>
-              <div style={{ fontSize: 13, color: 'var(--t2)', marginTop: 4 }}>per 1,000 web searches</div>
+              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>per 1,000 web searches</div>
             </div>
           </div>
         </div>
@@ -365,14 +365,14 @@ with client.agents.sessions.turn(
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {resources.map((r, i) => (
             <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" style={{
-              background: 'var(--card)', borderRadius: 12, padding: '20px 24px',
-              border: '1px solid var(--border)',
+              background: 'rgba(255,255,255,0.04)', borderRadius: 12, padding: '20px 24px',
+              border: '1px solid rgba(255,255,255,0.08)',
               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               gap: 16, textDecoration: 'none',
             }}>
               <div>
-                <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--t1)', marginBottom: 4 }}>{r.label}</div>
-                <div style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.5 }}>{r.desc}</div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: '#fff', marginBottom: 4 }}>{r.label}</div>
+                <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>{r.desc}</div>
               </div>
               <span className="btn btn--primary" style={{ padding: '8px 18px', fontSize: 12, flexShrink: 0 }}>
                 Open
