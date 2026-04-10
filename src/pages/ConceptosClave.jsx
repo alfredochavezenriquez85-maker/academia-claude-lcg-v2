@@ -19,50 +19,66 @@ export default function ConceptosClave() {
 
   return (
     <div>
-      <h1 style={{ fontSize: 32, fontWeight: 800, marginBottom: 8 }}>Conceptos Clave</h1>
-      <p style={{ fontSize: 16, color: 'var(--t2)', marginBottom: 32, maxWidth: 600, lineHeight: 1.6 }}>
-        Vocabulario esencial para trabajar con Claude. Cada concepto incluye una definición y un tip práctico para aplicarlo en consultoría.
-      </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        {CONCEPTS.map((c, i) => (
-          <div key={i} style={{ background: 'var(--card)', borderRadius: 12, border: '1px solid var(--border)', overflow: 'hidden' }}>
-            <button
-              onClick={() => setOpen(open === i ? null : i)}
-              style={{
-                width: '100%', background: 'none', border: 'none',
-                padding: '18px 24px', cursor: 'pointer',
-                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                textAlign: 'left',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                <span style={{
-                  width: 8, height: 8, borderRadius: '50%',
-                  background: open === i ? '#4CB882' : 'var(--border)',
-                  transition: 'background 0.2s', flexShrink: 0,
-                }} />
-                <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--t1)' }}>{c.term}</span>
-              </div>
-              <span style={{
-                fontSize: 18, color: 'var(--t2)',
-                transition: 'transform 0.2s',
-                transform: open === i ? 'rotate(180deg)' : 'rotate(0deg)',
-              }}>▾</span>
-            </button>
-            {open === i && (
-              <div style={{ padding: '0 24px 20px 44px' }}>
-                <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: '0 0 12px' }}>{c.def}</p>
-                <div style={{
-                  background: '#4CB88210', border: '1px solid #4CB88220',
-                  borderRadius: 8, padding: '10px 16px',
-                  fontSize: 13, color: '#358764', fontWeight: 600,
-                }}>
-                  💡 Tip LCG: {c.tip}
+      {/* PAGE HERO */}
+      <div className="page-hero">
+        <div className="page-hero__tag">Vocabulario esencial</div>
+        <h1 className="page-hero__title">Conceptos Clave</h1>
+        <p className="page-hero__desc">
+          Vocabulario esencial para trabajar con Claude. Cada concepto incluye una definicion y un tip practico para aplicarlo en consultoria.
+        </p>
+      </div>
+
+      {/* ACCORDION — section--white */}
+      <div className="section section--white">
+        <div className="section__tag">Glosario</div>
+        <h2 className="section__title">Todos los conceptos</h2>
+        <p className="section__desc">Haz clic en cada termino para ver su definicion y tip practico.</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, maxWidth: 720 }}>
+          {CONCEPTS.map((c, i) => (
+            <div key={i} style={{
+              background: 'var(--card)', borderRadius: 14,
+              border: '1px solid var(--border)', overflow: 'hidden',
+              transition: 'box-shadow 0.2s',
+              boxShadow: open === i ? '0 4px 20px rgba(0,0,0,0.06)' : 'none',
+            }}>
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                style={{
+                  width: '100%', background: 'none', border: 'none',
+                  padding: '20px 24px', cursor: 'pointer',
+                  display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                  textAlign: 'left',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                  <span style={{
+                    width: 10, height: 10, borderRadius: '50%',
+                    background: open === i ? '#00C853' : 'var(--border)',
+                    transition: 'background 0.2s', flexShrink: 0,
+                  }} />
+                  <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--t1)' }}>{c.term}</span>
                 </div>
-              </div>
-            )}
-          </div>
-        ))}
+                <span style={{
+                  fontSize: 18, color: 'var(--t2)',
+                  transition: 'transform 0.2s',
+                  transform: open === i ? 'rotate(180deg)' : 'rotate(0deg)',
+                }}>&#9662;</span>
+              </button>
+              {open === i && (
+                <div style={{ padding: '0 24px 24px 48px' }}>
+                  <p style={{ fontSize: 15, color: 'var(--t2)', lineHeight: 1.75, margin: '0 0 16px' }}>{c.def}</p>
+                  <div style={{
+                    background: 'rgba(0,200,83,0.06)', border: '1px solid rgba(0,200,83,0.15)',
+                    borderRadius: 10, padding: '14px 18px',
+                    fontSize: 13, color: '#00A844', fontWeight: 600, lineHeight: 1.6,
+                  }}>
+                    Tip LCG: {c.tip}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

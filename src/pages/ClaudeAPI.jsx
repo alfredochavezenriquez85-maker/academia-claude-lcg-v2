@@ -55,170 +55,177 @@ export default function ClaudeAPI() {
   ]
 
   const resources = [
-    { label: 'Documentación API', url: 'https://platform.claude.com/docs/en/home', desc: 'Referencia completa: Messages API, tool use, streaming, caching, batch, structured output.', color: '#0EA5E9' },
-    { label: 'Curso: Building with the Claude API', url: 'https://anthropic.skilljar.com/claude-with-the-anthropic-api', desc: 'El curso más completo de Anthropic Academy: tool use, streaming, RAG, MCP, apps con Claude. ~8 horas.', color: '#4CB882' },
-    { label: 'Prompt Engineering Guide', url: 'https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview', desc: 'Guía oficial de prompting: técnicas, best practices, structured output, evaluaciones.', color: '#8B5CF6' },
-    { label: 'SDK Python', url: 'https://github.com/anthropics/anthropic-sdk-python', desc: 'Repositorio oficial del SDK de Python. Instalación, ejemplos, documentación.', color: '#F59E0B' },
-    { label: 'Anthropic Cookbook', url: 'https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview', desc: 'Recetas y ejemplos prácticos para construir con Claude: RAG, agents, clasificación, extracción.', color: '#EF4444' },
+    { label: 'Documentación API', url: 'https://platform.claude.com/docs/en/home', desc: 'Referencia completa: Messages API, tool use, streaming, caching, batch, structured output.' },
+    { label: 'Curso: Building with the Claude API', url: 'https://anthropic.skilljar.com/claude-with-the-anthropic-api', desc: 'El curso más completo de Anthropic Academy: tool use, streaming, RAG, MCP, apps con Claude. ~8 horas.' },
+    { label: 'Prompt Engineering Guide', url: 'https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview', desc: 'Guía oficial de prompting: técnicas, best practices, structured output, evaluaciones.' },
+    { label: 'SDK Python', url: 'https://github.com/anthropics/anthropic-sdk-python', desc: 'Repositorio oficial del SDK de Python. Instalación, ejemplos, documentación.' },
+    { label: 'Anthropic Cookbook', url: 'https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview', desc: 'Recetas y ejemplos prácticos para construir con Claude: RAG, agents, clasificación, extracción.' },
   ]
 
   return (
     <div>
-      <h1 style={{ fontSize: 32, fontWeight: 800, marginBottom: 8 }}>Claude API</h1>
-      <div style={{ display: 'inline-block', padding: '4px 14px', borderRadius: 20, background: '#F59E0B10', border: '1px solid #F59E0B30', color: '#F59E0B', fontSize: 12, fontWeight: 700, marginBottom: 16 }}>
-        ACCESO PROGRAMÁTICO · SDKs en Python, TypeScript, Java, Go
-      </div>
-      <p style={{ fontSize: 16, color: 'var(--t2)', marginBottom: 32, maxWidth: 680, lineHeight: 1.7 }}>
-        La API de Claude da acceso programático completo a todos los modelos. Messages API para conversaciones, Tool Use para invocar herramientas externas, streaming de respuestas en tiempo real, prompt caching para reducir costos hasta 90%, batch processing con 50% de descuento para volumen, y structured output para respuestas en JSON. Disponible directamente con Anthropic o vía AWS Bedrock, Google Vertex AI y Microsoft Azure Foundry.
-      </p>
-
-      {/* API Overview */}
-      <div style={{
-        background: 'linear-gradient(135deg, #451a03, #78350f)', borderRadius: 14, padding: 28,
-        border: '1px solid #92400e', color: '#fff', marginBottom: 36,
-      }}>
-        <h3 style={{ margin: '0 0 12px', fontSize: 18, fontWeight: 800 }}>¿Quién necesita la API?</h3>
-        <p style={{ fontSize: 14, opacity: 0.85, lineHeight: 1.7, margin: '0 0 16px' }}>
-          La API es para cuando necesitas integrar Claude directamente en tus sistemas, aplicaciones o flujos de trabajo automatizados:
+      {/* PAGE HERO */}
+      <div className="page-hero">
+        <div className="page-hero__tag">Acceso programatico -- SDKs en Python, TypeScript, Java, Go</div>
+        <h1 className="page-hero__title">Claude API</h1>
+        <p className="page-hero__desc">
+          Acceso programatico completo a todos los modelos Claude. Messages API, Tool Use, streaming, prompt caching, batch processing y structured output. Disponible via Anthropic, AWS Bedrock, Google Vertex AI y Azure Foundry.
         </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {[
-            'Construir chatbots o asistentes personalizados para clientes o uso interno',
-            'Integrar Claude con ERP (Business Central), CRM, SharePoint u otros sistemas',
-            'Automatizar procesamiento de documentos a escala (cientos o miles)',
-            'Crear flujos en Power Automate, Azure Logic Apps o AWS Step Functions que usen IA',
-            'Generar dashboards inteligentes donde el usuario pregunte en lenguaje natural',
-          ].map((item, i) => (
-            <div key={i} style={{ display: 'flex', gap: 10, fontSize: 14, opacity: 0.85, lineHeight: 1.6 }}>
-              <span style={{ color: '#F59E0B', fontWeight: 700, flexShrink: 0 }}>→</span>
-              {item}
+      </div>
+
+      {/* WHO NEEDS THE API — section--cream */}
+      <div className="section section--cream">
+        <div className="section__tag">Para quien es</div>
+        <h2 className="section__title">Quien necesita la API?</h2>
+        <p className="section__desc">La API es para cuando necesitas integrar Claude directamente en tus sistemas, aplicaciones o flujos de trabajo automatizados.</p>
+        <div style={{
+          background: 'var(--lcg-black)', borderRadius: 16, padding: 32,
+          color: '#fff', maxWidth: 680,
+        }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {[
+              'Construir chatbots o asistentes personalizados para clientes o uso interno',
+              'Integrar Claude con ERP (Business Central), CRM, SharePoint u otros sistemas',
+              'Automatizar procesamiento de documentos a escala (cientos o miles)',
+              'Crear flujos en Power Automate, Azure Logic Apps o AWS Step Functions que usen IA',
+              'Generar dashboards inteligentes donde el usuario pregunte en lenguaje natural',
+            ].map((item, i) => (
+              <div key={i} style={{ display: 'flex', gap: 12, fontSize: 14, color: 'rgba(255,255,255,0.75)', lineHeight: 1.6 }}>
+                <span style={{ color: 'var(--lcg-green)', fontWeight: 700, flexShrink: 0 }}>&#8594;</span>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* FEATURES — section--white */}
+      <div className="section section--white">
+        <div className="section__tag">Funcionalidades</div>
+        <h2 className="section__title">Funcionalidades principales</h2>
+        <p className="section__desc">Las capacidades clave del API de Claude para integraciones empresariales.</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          {features.map((f, i) => (
+            <div key={i} style={{
+              background: 'var(--card)', borderRadius: 16, padding: 28,
+              border: '1px solid var(--border)',
+              borderLeft: '4px solid var(--lcg-green)',
+            }}>
+              <h4 style={{ margin: '0 0 10px', fontSize: 18, fontWeight: 800 }}>{f.title}</h4>
+              <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: '0 0 16px' }}>{f.desc}</p>
+              <div style={{
+                background: 'rgba(0,200,83,0.06)', border: '1px solid rgba(0,200,83,0.15)',
+                borderRadius: 8, padding: '12px 18px',
+                fontSize: 13, color: 'var(--lcg-green-dark)', fontWeight: 600, lineHeight: 1.6,
+              }}>
+                Tip LCG: {f.tip}
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Features */}
-      <h3 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--t2)', marginBottom: 16 }}>
-        Funcionalidades principales
-      </h3>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 36 }}>
-        {features.map((f, i) => (
-          <div key={i} style={{
-            background: 'var(--card)', borderRadius: 14, padding: 28,
-            border: '1px solid var(--border)', borderLeft: '4px solid #F59E0B',
-          }}>
-            <h4 style={{ margin: '0 0 8px', fontSize: 17, fontWeight: 800 }}>{f.title}</h4>
-            <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: '0 0 14px' }}>{f.desc}</p>
-            <div style={{
-              background: '#F59E0B08', border: '1px solid #F59E0B20',
-              borderRadius: 8, padding: '10px 16px',
-              fontSize: 13, color: '#B45309', fontWeight: 600, lineHeight: 1.6,
+      {/* SDKs + CLOUD — section--dark */}
+      <div className="section section--dark">
+        <div className="section__tag">SDKs oficiales</div>
+        <h2 className="section__title">SDKs y plataformas cloud</h2>
+        <p className="section__desc">Integra Claude en cualquier stack tecnologico con SDKs nativos y proveedores cloud.</p>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 16, marginBottom: 48 }}>
+          {sdks.map((sdk, i) => (
+            <a key={i} href={sdk.url} target="_blank" rel="noopener noreferrer" style={{
+              background: 'rgba(255,255,255,0.04)', borderRadius: 14, padding: 24,
+              border: '1px solid rgba(255,255,255,0.08)', textDecoration: 'none',
+              borderTop: '3px solid var(--lcg-green)',
             }}>
-              Tip LCG: {f.tip}
+              <h4 style={{ margin: '0 0 8px', fontSize: 17, fontWeight: 800, color: '#fff' }}>{sdk.lang}</h4>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5, margin: 0 }}>{sdk.desc}</p>
+            </a>
+          ))}
+        </div>
+
+        <div className="section__tag" style={{ marginBottom: 14 }}>Plataformas cloud</div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 16 }}>
+          {platforms.map((p, i) => (
+            <div key={i} style={{
+              background: 'rgba(255,255,255,0.04)', borderRadius: 14, padding: 24,
+              border: '1px solid rgba(255,255,255,0.08)',
+            }}>
+              <h4 style={{ margin: '0 0 8px', fontSize: 16, fontWeight: 800, color: '#fff' }}>{p.name}</h4>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
-      {/* SDKs */}
-      <h3 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--t2)', marginBottom: 16 }}>
-        SDKs oficiales
-      </h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 14, marginBottom: 36 }}>
-        {sdks.map((sdk, i) => (
-          <a key={i} href={sdk.url} target="_blank" rel="noopener noreferrer" style={{
-            background: 'var(--card)', borderRadius: 12, padding: 22,
-            border: '1px solid var(--border)', textDecoration: 'none',
-          }}>
-            <h4 style={{ margin: '0 0 6px', fontSize: 16, fontWeight: 800, color: 'var(--t1)' }}>{sdk.lang}</h4>
-            <p style={{ fontSize: 12, color: 'var(--t2)', lineHeight: 1.5, margin: 0 }}>{sdk.desc}</p>
-          </a>
-        ))}
+      {/* LCG USE CASES — section--cream */}
+      <div className="section section--cream">
+        <div className="section__tag">Aplicaciones</div>
+        <h2 className="section__title">Casos de uso para consultoria LCG</h2>
+        <p className="section__desc">Integraciones concretas del API de Claude en flujos de trabajo de consultoria.</p>
+        <div className="card-grid">
+          {lcgUseCases.map((uc, i) => (
+            <div key={i} className="card">
+              <div className="card__body">
+                <div className="card__tag">Caso de uso</div>
+                <h4 className="card__title" style={{ fontSize: 17 }}>{uc.title}</h4>
+                <p className="card__desc">{uc.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Cloud Platforms */}
-      <h3 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--t2)', marginBottom: 16 }}>
-        Plataformas cloud
-      </h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 14, marginBottom: 36 }}>
-        {platforms.map((p, i) => (
-          <div key={i} style={{
-            background: 'var(--card)', borderRadius: 12, padding: 22,
-            border: '1px solid var(--border)',
-          }}>
-            <h4 style={{ margin: '0 0 6px', fontSize: 15, fontWeight: 800 }}>{p.name}</h4>
-            <p style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* LCG Use Cases */}
-      <h3 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--t2)', marginBottom: 16 }}>
-        Casos de uso para consultoría LCG
-      </h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 14, marginBottom: 36 }}>
-        {lcgUseCases.map((uc, i) => (
-          <div key={i} style={{
-            background: 'var(--card)', borderRadius: 12, padding: 22,
-            border: '1px solid var(--border)',
-          }}>
-            <h4 style={{ margin: '0 0 8px', fontSize: 15, fontWeight: 700 }}>{uc.title}</h4>
-            <p style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.6, margin: 0 }}>{uc.desc}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Code example */}
-      <div style={{
-        background: 'var(--card)', borderRadius: 14, padding: 28,
-        border: '1px solid var(--border)', marginBottom: 36,
-      }}>
-        <h3 style={{ margin: '0 0 16px', fontSize: 18, fontWeight: 800 }}>Ejemplo: llamada básica con Python</h3>
+      {/* CODE EXAMPLE — section--white */}
+      <div className="section section--white">
+        <div className="section__tag">Ejemplo</div>
+        <h2 className="section__title">Llamada basica con Python</h2>
+        <p className="section__desc">Asi de simple es enviar un mensaje a Claude desde tu codigo.</p>
         <div style={{
-          background: '#1a1a1a', borderRadius: 8, padding: 20, fontFamily: 'monospace',
-          fontSize: 12, lineHeight: 1.8, color: '#e0e0e0', overflow: 'auto',
+          background: '#0a0a0a', borderRadius: 12, padding: 28, fontFamily: "'Courier New', monospace",
+          fontSize: 13, lineHeight: 2, color: '#e0e0e0', overflow: 'auto', maxWidth: 640,
         }}>
-          <div><span style={{ color: '#F59E0B' }}>import</span> anthropic</div>
+          <div><span style={{ color: 'var(--lcg-green)' }}>import</span> anthropic</div>
           <div>&nbsp;</div>
           <div>client = anthropic.Anthropic()</div>
           <div>&nbsp;</div>
           <div>message = client.messages.create(</div>
-          <div>    model=<span style={{ color: '#4CB882' }}>"claude-sonnet-4-6"</span>,</div>
-          <div>    max_tokens=<span style={{ color: '#0EA5E9' }}>1024</span>,</div>
-          <div>    system=<span style={{ color: '#4CB882' }}>"Eres un consultor experto de LCG..."</span>,</div>
+          <div>    model=<span style={{ color: '#fff' }}>"claude-sonnet-4-6"</span>,</div>
+          <div>    max_tokens=<span style={{ color: 'var(--lcg-green)' }}>1024</span>,</div>
+          <div>    system=<span style={{ color: '#fff' }}>"Eres un consultor experto de LCG..."</span>,</div>
           <div>    messages=[</div>
-          <div>        {'{'}<span style={{ color: '#4CB882' }}>"role"</span>: <span style={{ color: '#4CB882' }}>"user"</span>,</div>
-          <div>         <span style={{ color: '#4CB882' }}>"content"</span>: <span style={{ color: '#4CB882' }}>"Analiza estos KPIs..."</span>{'}'},</div>
+          <div>        {'{'}<span style={{ color: '#fff' }}>"role"</span>: <span style={{ color: '#fff' }}>"user"</span>,</div>
+          <div>         <span style={{ color: '#fff' }}>"content"</span>: <span style={{ color: '#fff' }}>"Analiza estos KPIs..."</span>{'}'},</div>
           <div>    ]</div>
           <div>)</div>
           <div>&nbsp;</div>
-          <div><span style={{ color: '#8B5CF6' }}>print</span>(message.content[<span style={{ color: '#0EA5E9' }}>0</span>].text)</div>
+          <div><span style={{ color: 'var(--lcg-green)' }}>print</span>(message.content[<span style={{ color: 'var(--lcg-green)' }}>0</span>].text)</div>
         </div>
       </div>
 
-      {/* Resources */}
-      <h3 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--t2)', marginBottom: 16 }}>
-        Recursos y enlaces
-      </h3>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-        {resources.map((r, i) => (
-          <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" style={{
-            background: 'var(--card)', borderRadius: 12, padding: '18px 24px',
-            border: '1px solid var(--border)',
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-            gap: 16, textDecoration: 'none',
-          }}>
-            <div>
-              <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--t1)', marginBottom: 4 }}>{r.label}</div>
-              <div style={{ fontSize: 12, color: 'var(--t2)', lineHeight: 1.5 }}>{r.desc}</div>
-            </div>
-            <span style={{
-              padding: '6px 14px', borderRadius: 8,
-              background: r.color, color: '#fff',
-              fontSize: 12, fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0,
-            }}>Abrir ↗</span>
-          </a>
-        ))}
+      {/* RESOURCES — section--dark */}
+      <div className="section section--dark">
+        <div className="section__tag">Recursos</div>
+        <h2 className="section__title">Recursos y enlaces</h2>
+        <p className="section__desc">Documentacion, cursos y herramientas para dominar el API de Claude.</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          {resources.map((r, i) => (
+            <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" style={{
+              background: 'rgba(255,255,255,0.04)', borderRadius: 12, padding: '20px 24px',
+              border: '1px solid rgba(255,255,255,0.08)',
+              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+              gap: 16, textDecoration: 'none',
+            }}>
+              <div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: '#fff', marginBottom: 4 }}>{r.label}</div>
+                <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>{r.desc}</div>
+              </div>
+              <span className="btn btn--primary" style={{ padding: '8px 18px', fontSize: 12, flexShrink: 0 }}>
+                Abrir
+              </span>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   )

@@ -42,150 +42,163 @@ export default function ClaudeChat() {
   ]
 
   const resources = [
-    { label: 'Ir a Claude.ai', url: 'https://claude.ai', desc: 'Accede a la interfaz web directamente.', color: '#4CB882' },
-    { label: 'Página de producto', url: 'https://www.anthropic.com/product/claude', desc: 'Descripción oficial de Claude por Anthropic.', color: '#8B5CF6' },
-    { label: 'Curso Claude 101', url: 'https://anthropic.skilljar.com/claude-101', desc: 'Primeros pasos: prompting, proyectos, artefactos, skills, Deep Research. ~2 horas.', color: '#0EA5E9' },
-    { label: 'Video: Future of AI at Work', url: 'https://www.anthropic.com/webinars/future-of-ai-at-work-introducing-cowork', desc: 'Webinar de Anthropic: flujo Chat → Code → Cowork y el futuro del trabajo con IA.', color: '#F59E0B' },
+    { label: 'Ir a Claude.ai', url: 'https://claude.ai', desc: 'Accede a la interfaz web directamente.' },
+    { label: 'Página de producto', url: 'https://www.anthropic.com/product/claude', desc: 'Descripción oficial de Claude por Anthropic.' },
+    { label: 'Curso Claude 101', url: 'https://anthropic.skilljar.com/claude-101', desc: 'Primeros pasos: prompting, proyectos, artefactos, skills, Deep Research. ~2 horas.' },
+    { label: 'Video: Future of AI at Work', url: 'https://www.anthropic.com/webinars/future-of-ai-at-work-introducing-cowork', desc: 'Webinar de Anthropic: flujo Chat → Code → Cowork y el futuro del trabajo con IA.' },
   ]
 
   return (
     <div>
-      <h1 style={{ fontSize: 32, fontWeight: 800, marginBottom: 8 }}>Claude.ai — Chat</h1>
-      <div style={{ display: 'inline-block', padding: '4px 14px', borderRadius: 20, background: '#4CB88210', border: '1px solid #4CB88230', color: '#4CB882', fontSize: 12, fontWeight: 700, marginBottom: 16 }}>
-        INTERFAZ PRINCIPAL · Web + Móvil
+      {/* ===== PAGE HERO ===== */}
+      <div className="page-hero">
+        <div className="page-hero__tag">INTERFAZ PRINCIPAL · Web + Móvil</div>
+        <h1 className="page-hero__title">Claude.ai — Chat</h1>
+        <p className="page-hero__desc">
+          Claude.ai es la interfaz web y móvil principal de Claude. Es un chat conversacional avanzado con capacidades que van mucho más allá de un chatbot: proyectos con contexto persistente, artefactos interactivos, Deep Research para investigación profunda con citas, integraciones con Google Drive, Slack y herramientas externas vía MCP. Soporta subida directa de archivos (PDFs, Word, Excel, imágenes, PowerPoint) para análisis inmediato.
+        </p>
       </div>
-      <p style={{ fontSize: 16, color: 'var(--t2)', marginBottom: 32, maxWidth: 680, lineHeight: 1.7 }}>
-        Claude.ai es la interfaz web y móvil principal de Claude. Es un chat conversacional avanzado con capacidades que van mucho más allá de un chatbot: proyectos con contexto persistente, artefactos interactivos, Deep Research para investigación profunda con citas, integraciones con Google Drive, Slack y herramientas externas vía MCP. Soporta subida directa de archivos (PDFs, Word, Excel, imágenes, PowerPoint) para análisis inmediato.
-      </p>
 
-      {/* ChatGPT vs Claude */}
-      <div style={{
-        background: 'linear-gradient(135deg, #0F172A, #1E293B)', borderRadius: 14, padding: 28,
-        border: '1px solid #334155', color: '#fff', marginBottom: 36,
-      }}>
-        <h3 style={{ margin: '0 0 16px', fontSize: 18, fontWeight: 800 }}>¿Por qué Claude y no ChatGPT?</h3>
-        <p style={{ fontSize: 14, opacity: 0.8, lineHeight: 1.7, margin: '0 0 16px' }}>
+      {/* ===== ChatGPT vs Claude — section--cream ===== */}
+      <div className="section section--cream">
+        <div className="section__tag">Perspectiva del equipo</div>
+        <h2 className="section__title">¿Por qué Claude y no ChatGPT?</h2>
+        <p className="section__desc">
           Basado en la experiencia real del equipo LCG en la sesión de capacitación del 10 de abril 2026:
         </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {[
-            'Claude cuestiona y hace preguntas para llegar a más profundidad — no ejecuta "a lo tonto". ChatGPT te dice "claro jefe, gran idea" y se pone a ejecutar sin validar.',
-            'Claude es más potente en razonamiento, seguimiento de instrucciones largas y complejidad de análisis.',
-            'La ventaja está en las herramientas agénticas (Cowork, Code, Managed Agents) que OpenAI no tiene al mismo nivel.',
-            'Recomendación del equipo: ChatGPT gratis para cosas rápidas (reescribir un correo). Claude para trabajo serio de consultoría.',
-          ].map((item, i) => (
-            <div key={i} style={{ display: 'flex', gap: 10, fontSize: 14, opacity: 0.8, lineHeight: 1.6 }}>
-              <span style={{ color: '#4CB882', fontWeight: 700, flexShrink: 0 }}>→</span>
-              {item}
+        <div style={{
+          background: '#111', borderRadius: 16, padding: 32,
+          border: '1px solid #333', color: '#fff', maxWidth: 760,
+        }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            {[
+              'Claude cuestiona y hace preguntas para llegar a más profundidad — no ejecuta "a lo tonto". ChatGPT te dice "claro jefe, gran idea" y se pone a ejecutar sin validar.',
+              'Claude es más potente en razonamiento, seguimiento de instrucciones largas y complejidad de análisis.',
+              'La ventaja está en las herramientas agénticas (Cowork, Code, Managed Agents) que OpenAI no tiene al mismo nivel.',
+              'Recomendación del equipo: ChatGPT gratis para cosas rápidas (reescribir un correo). Claude para trabajo serio de consultoría.',
+            ].map((item, i) => (
+              <div key={i} style={{ display: 'flex', gap: 12, fontSize: 14, color: 'rgba(255,255,255,0.75)', lineHeight: 1.7 }}>
+                <span style={{ color: 'var(--lcg-green)', fontWeight: 700, flexShrink: 0 }}>→</span>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ===== Features — section--white ===== */}
+      <div className="section section--white">
+        <div className="section__tag">Capacidades</div>
+        <h2 className="section__title">Funcionalidades principales</h2>
+        <p className="section__desc">
+          Todo lo que necesitas para investigar, analizar y crear entregables de consultoría desde una sola interfaz.
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+          {features.map((f, i) => (
+            <div key={i} style={{
+              background: 'var(--card)', borderRadius: 14, padding: 28,
+              border: '1px solid var(--border)', borderLeft: '3px solid var(--lcg-green)',
+            }}>
+              <h4 style={{ margin: '0 0 8px', fontSize: 17, fontWeight: 800 }}>{f.title}</h4>
+              <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: '0 0 14px' }}>{f.desc}</p>
+              <div style={{
+                background: 'rgba(0,200,83,0.06)', border: '1px solid rgba(0,200,83,0.15)',
+                borderRadius: 8, padding: '10px 16px',
+                fontSize: 13, color: 'var(--lcg-green)', fontWeight: 600, lineHeight: 1.6,
+              }}>
+                Tip LCG: {f.tip}
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Features */}
-      <h3 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--t2)', marginBottom: 16 }}>
-        Funcionalidades principales
-      </h3>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 36 }}>
-        {features.map((f, i) => (
-          <div key={i} style={{
-            background: 'var(--card)', borderRadius: 14, padding: 28,
-            border: '1px solid var(--border)', borderLeft: '4px solid #4CB882',
-          }}>
-            <h4 style={{ margin: '0 0 8px', fontSize: 17, fontWeight: 800 }}>{f.title}</h4>
-            <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: '0 0 14px' }}>{f.desc}</p>
-            <div style={{
-              background: '#4CB88208', border: '1px solid #4CB88220',
-              borderRadius: 8, padding: '10px 16px',
-              fontSize: 13, color: '#358764', fontWeight: 600, lineHeight: 1.6,
-            }}>
-              Tip LCG: {f.tip}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Flow */}
-      <div style={{
-        background: 'var(--card)', borderRadius: 14, padding: 28,
-        border: '1px solid var(--border)', marginBottom: 36,
-      }}>
-        <h3 style={{ margin: '0 0 16px', fontSize: 18, fontWeight: 800 }}>Flujo: Chat → Code → Cowork → Managed Agents</h3>
-        <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: '0 0 16px' }}>
+      {/* ===== Flow Diagram — section--dark ===== */}
+      <div className="section section--dark">
+        <div className="section__tag">Ecosistema</div>
+        <h2 className="section__title" style={{ color: '#fff' }}>Flujo: Chat → Code → Cowork → Managed Agents</h2>
+        <p className="section__desc">
           Claude.ai (Chat) es el punto de partida. Aquí conceptualizas, planificas, haces preguntas, defines el CLAUDE.md de tu proyecto. Después escalas:
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 12 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: 14 }}>
           {[
-            { step: '1. Chat', desc: 'Conceptualizar, planificar, investigar con Deep Research, definir el proyecto', color: '#4CB882' },
-            { step: '2. Code', desc: 'Ejecutar: procesar archivos, generar entregables, push a GitHub', color: '#8B5CF6' },
-            { step: '3. Cowork', desc: 'Trabajo con archivos locales sin terminal — para no-developers', color: '#0EA5E9' },
-            { step: '4. Managed Agents', desc: 'Ejecución autónoma en la nube a escala — agentes 24/7', color: '#F59E0B' },
+            { step: '1. Chat', desc: 'Conceptualizar, planificar, investigar con Deep Research, definir el proyecto' },
+            { step: '2. Code', desc: 'Ejecutar: procesar archivos, generar entregables, push a GitHub' },
+            { step: '3. Cowork', desc: 'Trabajo con archivos locales sin terminal — para no-developers' },
+            { step: '4. Managed Agents', desc: 'Ejecución autónoma en la nube a escala — agentes 24/7' },
           ].map((s, i) => (
             <div key={i} style={{
-              background: `${s.color}08`, borderRadius: 10, padding: 16,
-              border: `1px solid ${s.color}25`,
+              background: 'rgba(0,200,83,0.06)', borderRadius: 12, padding: 20,
+              border: '1px solid rgba(0,200,83,0.15)',
             }}>
-              <div style={{ fontSize: 13, fontWeight: 800, color: s.color, marginBottom: 6 }}>{s.step}</div>
-              <div style={{ fontSize: 12, color: 'var(--t2)', lineHeight: 1.5 }}>{s.desc}</div>
+              <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--lcg-green)', marginBottom: 8 }}>{s.step}</div>
+              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.6 }}>{s.desc}</div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Use cases for LCG */}
-      <h3 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--t2)', marginBottom: 16 }}>
-        Casos de uso para consultoría LCG
-      </h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 14, marginBottom: 36 }}>
-        {lcgUseCases.map((uc, i) => (
-          <div key={i} style={{
-            background: 'var(--card)', borderRadius: 12, padding: 22,
-            border: '1px solid var(--border)',
-          }}>
-            <h4 style={{ margin: '0 0 8px', fontSize: 15, fontWeight: 700 }}>{uc.title}</h4>
-            <p style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.6, margin: '0 0 10px' }}>{uc.desc}</p>
-            <div style={{ fontSize: 11, fontWeight: 700, color: '#4CB882', textTransform: 'uppercase', letterSpacing: 1 }}>
-              {uc.interface}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Quote */}
-      <div style={{
-        background: '#4CB88208', border: '1px solid #4CB88220', borderRadius: 14,
-        padding: 28, marginBottom: 36,
-      }}>
-        <div style={{ fontSize: 28, color: '#4CB882', fontWeight: 800, marginBottom: 8 }}>"</div>
-        <p style={{ fontSize: 15, fontStyle: 'italic', lineHeight: 1.7, margin: '0 0 12px', color: 'var(--t1)' }}>
-          Nosotros nos estamos convirtiendo en editores, no en espectadores. Tenemos que revisar la información, agregar nuestro conocimiento e intuición que ninguna IA tiene hoy.
+      {/* ===== LCG Use Cases — section--cream ===== */}
+      <div className="section section--cream">
+        <div className="section__tag">Aplicaciones</div>
+        <h2 className="section__title">Casos de uso para consultoría LCG</h2>
+        <p className="section__desc">
+          Escenarios reales donde Claude.ai acelera el trabajo del consultor en cada fase del engagement.
         </p>
-        <div style={{ fontSize: 13, fontWeight: 700, color: '#4CB882' }}>— Jaime Restrepo, LCG</div>
+        <div className="card-grid">
+          {lcgUseCases.map((uc, i) => (
+            <div key={i} className="card">
+              <div className="card__body">
+                <div className="card__tag">{uc.interface}</div>
+                <h4 className="card__title">{uc.title}</h4>
+                <p className="card__desc">{uc.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Resources */}
-      <h3 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--t2)', marginBottom: 16 }}>
-        Recursos y enlaces
-      </h3>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-        {resources.map((r, i) => (
-          <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" style={{
-            background: 'var(--card)', borderRadius: 12, padding: '18px 24px',
-            border: '1px solid var(--border)',
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-            gap: 16, textDecoration: 'none',
-          }}>
-            <div>
-              <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--t1)', marginBottom: 4 }}>{r.label}</div>
-              <div style={{ fontSize: 12, color: 'var(--t2)', lineHeight: 1.5 }}>{r.desc}</div>
-            </div>
-            <span style={{
-              padding: '6px 14px', borderRadius: 8,
-              background: r.color, color: '#fff',
-              fontSize: 12, fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0,
-            }}>Abrir ↗</span>
-          </a>
-        ))}
+      {/* ===== Quote — section--white ===== */}
+      <div className="section section--white">
+        <div style={{
+          background: 'rgba(0,200,83,0.06)', border: '1px solid rgba(0,200,83,0.15)', borderRadius: 16,
+          padding: 36, maxWidth: 700,
+        }}>
+          <div style={{ fontSize: 32, color: 'var(--lcg-green)', fontWeight: 800, marginBottom: 8, fontFamily: 'Playfair Display, serif' }}>"</div>
+          <p style={{ fontSize: 16, fontStyle: 'italic', lineHeight: 1.8, margin: '0 0 14px', color: 'var(--t1)' }}>
+            Nosotros nos estamos convirtiendo en editores, no en espectadores. Tenemos que revisar la información, agregar nuestro conocimiento e intuición que ninguna IA tiene hoy.
+          </p>
+          <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--lcg-green)' }}>— Jaime Restrepo, LCG</div>
+        </div>
+      </div>
+
+      {/* ===== Resources — section--dark ===== */}
+      <div className="section section--dark">
+        <div className="section__tag">Recursos</div>
+        <h2 className="section__title" style={{ color: '#fff' }}>Recursos y enlaces</h2>
+        <p className="section__desc">
+          Cursos, documentación y herramientas para dominar Claude.ai.
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 700 }}>
+          {resources.map((r, i) => (
+            <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" style={{
+              background: 'rgba(255,255,255,0.04)', borderRadius: 12, padding: '18px 24px',
+              border: '1px solid rgba(255,255,255,0.08)',
+              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+              gap: 16, textDecoration: 'none', transition: 'background 0.2s',
+            }}>
+              <div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: '#fff', marginBottom: 4 }}>{r.label}</div>
+                <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>{r.desc}</div>
+              </div>
+              <span style={{
+                padding: '6px 16px', borderRadius: 8,
+                background: 'var(--lcg-green)', color: '#fff',
+                fontSize: 12, fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0,
+              }}>Abrir ↗</span>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   )

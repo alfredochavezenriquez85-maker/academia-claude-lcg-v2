@@ -52,139 +52,158 @@ export default function ClaudeCowork() {
   ]
 
   const resources = [
-    { label: 'Página de producto', url: 'https://www.anthropic.com/product/claude-cowork', desc: 'Descripción oficial de Claude Cowork por Anthropic.', color: '#0EA5E9' },
-    { label: 'Curso: Introduction to Claude Cowork', url: 'https://anthropic.skilljar.com/introduction-to-claude-cowork', desc: 'Task loop, plugins, skills, flujos de archivos e investigación. ~1.5 horas.', color: '#4CB882' },
-    { label: 'Webinar: Future of AI at Work', url: 'https://www.anthropic.com/webinars/future-of-ai-at-work-introducing-cowork', desc: 'Webinar oficial de Anthropic presentando Cowork y su visión del trabajo con IA.', color: '#8B5CF6' },
-    { label: 'Tutorial DataCamp', url: 'https://www.datacamp.com/tutorial/claude-cowork-tutorial', desc: 'Tutorial práctico paso a paso de Claude Cowork por DataCamp.', color: '#F59E0B' },
-    { label: 'Anuncio TechCrunch', url: 'https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/', desc: 'Artículo de TechCrunch sobre Cowork: "Claude Code sin el código".', color: '#EF4444' },
+    { label: 'Página de producto', url: 'https://www.anthropic.com/product/claude-cowork', desc: 'Descripción oficial de Claude Cowork por Anthropic.' },
+    { label: 'Curso: Introduction to Claude Cowork', url: 'https://anthropic.skilljar.com/introduction-to-claude-cowork', desc: 'Task loop, plugins, skills, flujos de archivos e investigación. ~1.5 horas.' },
+    { label: 'Webinar: Future of AI at Work', url: 'https://www.anthropic.com/webinars/future-of-ai-at-work-introducing-cowork', desc: 'Webinar oficial de Anthropic presentando Cowork y su visión del trabajo con IA.' },
+    { label: 'Tutorial DataCamp', url: 'https://www.datacamp.com/tutorial/claude-cowork-tutorial', desc: 'Tutorial práctico paso a paso de Claude Cowork por DataCamp.' },
+    { label: 'Anuncio TechCrunch', url: 'https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/', desc: 'Artículo de TechCrunch sobre Cowork: "Claude Code sin el código".' },
   ]
 
   return (
     <div>
-      <h1 style={{ fontSize: 32, fontWeight: 800, marginBottom: 8 }}>Claude Cowork</h1>
-      <div style={{ display: 'inline-block', padding: '4px 14px', borderRadius: 20, background: '#0EA5E910', border: '1px solid #0EA5E930', color: '#0EA5E9', fontSize: 12, fontWeight: 700, marginBottom: 16 }}>
-        AGENTE DE ESCRITORIO · macOS + Windows · GA Abril 2026
-      </div>
-      <p style={{ fontSize: 16, color: 'var(--t2)', marginBottom: 32, maxWidth: 680, lineHeight: 1.7 }}>
-        Claude Cowork es un agente de escritorio que trabaja directamente con tus archivos y aplicaciones. No necesitas terminal ni saber programar. Le describes una tarea, le apuntas a una carpeta, y Claude planifica y ejecuta los pasos de forma autónoma. Puede reorganizar archivos, crear reportes desde notas, extraer datos de screenshots, generar presentaciones, navegar la web y más. Disponible en planes Pro ($20/mes), Team y Enterprise.
-      </p>
-
-      {/* Key differentiator */}
-      <div style={{
-        background: 'linear-gradient(135deg, #0F172A, #1E293B)', borderRadius: 14, padding: 28,
-        border: '1px solid #334155', color: '#fff', marginBottom: 36,
-      }}>
-        <h3 style={{ margin: '0 0 12px', fontSize: 18, fontWeight: 800 }}>La clave: trabajo con archivos locales sin código</h3>
-        <p style={{ fontSize: 14, opacity: 0.8, lineHeight: 1.7, margin: '0 0 16px' }}>
-          Cowork es la herramienta ideal para consultores que no son técnicos. Mientras Claude Code requiere terminal y conocimientos de programación, Cowork trabaja visualmente con tu escritorio:
+      {/* ===== PAGE HERO ===== */}
+      <div className="page-hero">
+        <div className="page-hero__tag">AGENTE DE ESCRITORIO · macOS + Windows · GA Abril 2026</div>
+        <h1 className="page-hero__title">Claude Cowork</h1>
+        <p className="page-hero__desc">
+          Claude Cowork es un agente de escritorio que trabaja directamente con tus archivos y aplicaciones. No necesitas terminal ni saber programar. Le describes una tarea, le apuntas a una carpeta, y Claude planifica y ejecuta los pasos de forma autónoma. Disponible en planes Pro ($20/mes), Team y Enterprise.
         </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {[
-            'Le das una carpeta con archivos del proyecto → los lee, analiza y genera entregables',
-            'Navega la web para investigar → extrae información y la estructura',
-            'Trabaja con apps de escritorio → crea documentos, organiza archivos',
-            'Recibe tareas desde tu iPhone vía Dispatch → ejecuta mientras estás en reunión',
-          ].map((item, i) => (
-            <div key={i} style={{ display: 'flex', gap: 10, fontSize: 14, opacity: 0.8, lineHeight: 1.6 }}>
-              <span style={{ color: '#0EA5E9', fontWeight: 700, flexShrink: 0 }}>→</span>
-              {item}
+      </div>
+
+      {/* ===== Key Differentiator — section--cream ===== */}
+      <div className="section section--cream">
+        <div className="section__tag">Diferenciador clave</div>
+        <h2 className="section__title">Trabajo con archivos locales sin código</h2>
+        <p className="section__desc">
+          Cowork es la herramienta ideal para consultores que no son técnicos. Mientras Claude Code requiere terminal y conocimientos de programación, Cowork trabaja visualmente con tu escritorio.
+        </p>
+        <div style={{
+          background: '#111', borderRadius: 16, padding: 32,
+          border: '1px solid #333', color: '#fff', maxWidth: 760,
+        }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {[
+              'Le das una carpeta con archivos del proyecto → los lee, analiza y genera entregables',
+              'Navega la web para investigar → extrae información y la estructura',
+              'Trabaja con apps de escritorio → crea documentos, organiza archivos',
+              'Recibe tareas desde tu iPhone vía Dispatch → ejecuta mientras estás en reunión',
+            ].map((item, i) => (
+              <div key={i} style={{ display: 'flex', gap: 12, fontSize: 14, color: 'rgba(255,255,255,0.75)', lineHeight: 1.7 }}>
+                <span style={{ color: 'var(--lcg-green)', fontWeight: 700, flexShrink: 0 }}>→</span>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ===== Features — section--white ===== */}
+      <div className="section section--white">
+        <div className="section__tag">Capacidades</div>
+        <h2 className="section__title">Funcionalidades principales</h2>
+        <p className="section__desc">
+          Todo lo que Cowork puede hacer para acelerar tu trabajo de consultoría sin escribir una línea de código.
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+          {features.map((f, i) => (
+            <div key={i} style={{
+              background: 'var(--card)', borderRadius: 14, padding: 28,
+              border: '1px solid var(--border)', borderLeft: '3px solid var(--lcg-green)',
+            }}>
+              <h4 style={{ margin: '0 0 8px', fontSize: 17, fontWeight: 800 }}>{f.title}</h4>
+              <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: '0 0 14px' }}>{f.desc}</p>
+              <div style={{
+                background: 'rgba(0,200,83,0.06)', border: '1px solid rgba(0,200,83,0.15)',
+                borderRadius: 8, padding: '10px 16px',
+                fontSize: 13, color: 'var(--lcg-green)', fontWeight: 600, lineHeight: 1.6,
+              }}>
+                Tip LCG: {f.tip}
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Features */}
-      <h3 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--t2)', marginBottom: 16 }}>
-        Funcionalidades principales
-      </h3>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 36 }}>
-        {features.map((f, i) => (
-          <div key={i} style={{
-            background: 'var(--card)', borderRadius: 14, padding: 28,
-            border: '1px solid var(--border)', borderLeft: '4px solid #0EA5E9',
-          }}>
-            <h4 style={{ margin: '0 0 8px', fontSize: 17, fontWeight: 800 }}>{f.title}</h4>
-            <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: '0 0 14px' }}>{f.desc}</p>
-            <div style={{
-              background: '#0EA5E908', border: '1px solid #0EA5E920',
-              borderRadius: 8, padding: '10px 16px',
-              fontSize: 13, color: '#0077B6', fontWeight: 600, lineHeight: 1.6,
-            }}>
-              Tip LCG: {f.tip}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Comparison table */}
-      <h3 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--t2)', marginBottom: 16 }}>
-        Chat vs. Cowork vs. Code — Comparativa
-      </h3>
-      <div style={{
-        background: 'var(--card)', borderRadius: 14, border: '1px solid var(--border)',
-        overflow: 'hidden', marginBottom: 36,
-      }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
-          <thead>
-            <tr style={{ background: '#f8f7f5', borderBottom: '2px solid var(--border)' }}>
-              <th style={{ padding: '14px 20px', textAlign: 'left', fontWeight: 700 }}>Característica</th>
-              <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700 }}>Chat</th>
-              <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700, color: '#0EA5E9' }}>Cowork</th>
-              <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700 }}>Code</th>
-            </tr>
-          </thead>
-          <tbody>
-            {vs.map((row, i) => (
-              <tr key={i} style={{ borderBottom: i < vs.length - 1 ? '1px solid var(--border)' : 'none' }}>
-                <td style={{ padding: '12px 20px', color: 'var(--t2)' }}>{row.feature}</td>
-                <td style={{ padding: '12px 16px', textAlign: 'center' }}>{row.chat}</td>
-                <td style={{ padding: '12px 16px', textAlign: 'center', fontWeight: 600, color: '#0EA5E9' }}>{row.cowork}</td>
-                <td style={{ padding: '12px 16px', textAlign: 'center' }}>{row.code}</td>
+      {/* ===== Comparison Table — section--dark ===== */}
+      <div className="section section--dark">
+        <div className="section__tag">Comparativa</div>
+        <h2 className="section__title" style={{ color: '#fff' }}>Chat vs. Cowork vs. Code</h2>
+        <p className="section__desc">
+          Elige la interfaz correcta según tu perfil y necesidad.
+        </p>
+        <div style={{
+          borderRadius: 14, overflow: 'hidden',
+          border: '1px solid rgba(255,255,255,0.1)',
+        }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+            <thead>
+              <tr style={{ background: 'rgba(255,255,255,0.06)', borderBottom: '2px solid rgba(255,255,255,0.1)' }}>
+                <th style={{ padding: '14px 20px', textAlign: 'left', fontWeight: 700, color: '#fff' }}>Característica</th>
+                <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700, color: 'rgba(255,255,255,0.6)' }}>Chat</th>
+                <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700, color: 'var(--lcg-green)' }}>Cowork</th>
+                <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700, color: 'rgba(255,255,255,0.6)' }}>Code</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {vs.map((row, i) => (
+                <tr key={i} style={{ borderBottom: i < vs.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+                  <td style={{ padding: '12px 20px', color: 'rgba(255,255,255,0.55)' }}>{row.feature}</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'center', color: 'rgba(255,255,255,0.5)' }}>{row.chat}</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'center', fontWeight: 600, color: 'var(--lcg-green)' }}>{row.cowork}</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'center', color: 'rgba(255,255,255,0.5)' }}>{row.code}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      {/* LCG Use Cases */}
-      <h3 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--t2)', marginBottom: 16 }}>
-        Casos de uso para consultoría LCG
-      </h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 14, marginBottom: 36 }}>
-        {lcgUseCases.map((uc, i) => (
-          <div key={i} style={{
-            background: 'var(--card)', borderRadius: 12, padding: 22,
-            border: '1px solid var(--border)',
-          }}>
-            <h4 style={{ margin: '0 0 8px', fontSize: 15, fontWeight: 700 }}>{uc.title}</h4>
-            <p style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.6, margin: 0 }}>{uc.desc}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Resources */}
-      <h3 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--t2)', marginBottom: 16 }}>
-        Recursos y enlaces
-      </h3>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-        {resources.map((r, i) => (
-          <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" style={{
-            background: 'var(--card)', borderRadius: 12, padding: '18px 24px',
-            border: '1px solid var(--border)',
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-            gap: 16, textDecoration: 'none',
-          }}>
-            <div>
-              <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--t1)', marginBottom: 4 }}>{r.label}</div>
-              <div style={{ fontSize: 12, color: 'var(--t2)', lineHeight: 1.5 }}>{r.desc}</div>
+      {/* ===== LCG Use Cases — section--cream ===== */}
+      <div className="section section--cream">
+        <div className="section__tag">Aplicaciones</div>
+        <h2 className="section__title">Casos de uso para consultoría LCG</h2>
+        <p className="section__desc">
+          Escenarios reales donde Cowork transforma el trabajo diario del consultor sin necesidad de código.
+        </p>
+        <div className="card-grid">
+          {lcgUseCases.map((uc, i) => (
+            <div key={i} className="card">
+              <div className="card__body">
+                <h4 className="card__title">{uc.title}</h4>
+                <p className="card__desc">{uc.desc}</p>
+              </div>
             </div>
-            <span style={{
-              padding: '6px 14px', borderRadius: 8,
-              background: r.color, color: '#fff',
-              fontSize: 12, fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0,
-            }}>Abrir ↗</span>
-          </a>
-        ))}
+          ))}
+        </div>
+      </div>
+
+      {/* ===== Resources — section--white ===== */}
+      <div className="section section--white">
+        <div className="section__tag">Recursos</div>
+        <h2 className="section__title">Recursos y enlaces</h2>
+        <p className="section__desc">
+          Cursos, tutoriales y documentación para dominar Claude Cowork.
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 700 }}>
+          {resources.map((r, i) => (
+            <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" style={{
+              background: 'var(--card)', borderRadius: 12, padding: '18px 24px',
+              border: '1px solid var(--border)',
+              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+              gap: 16, textDecoration: 'none', transition: 'background 0.2s',
+            }}>
+              <div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--t1)', marginBottom: 4 }}>{r.label}</div>
+                <div style={{ fontSize: 12, color: 'var(--t2)', lineHeight: 1.5 }}>{r.desc}</div>
+              </div>
+              <span style={{
+                padding: '6px 16px', borderRadius: 8,
+                background: 'var(--lcg-green)', color: '#fff',
+                fontSize: 12, fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0,
+              }}>Abrir ↗</span>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   )
