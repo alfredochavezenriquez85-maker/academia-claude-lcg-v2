@@ -181,7 +181,7 @@ export default function ClaudeChat() {
       {/* ===== Resources — section--dark ===== */}
       <div className="section section--dark">
         <div className="section__tag">Recursos</div>
-        <h2 className="section__title" style={{ color: '#fff' }}>Recursos y enlaces</h2>
+        <h2 className="section__title" style={{ color: 'var(--t1)' }}>Recursos y enlaces</h2>
         <p className="section__desc">
           Cursos oficiales, documentacion y herramientas para dominar Claude.ai.
         </p>
@@ -189,8 +189,8 @@ export default function ClaudeChat() {
           {resources.map((r, i) => (
             <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" className="link-card">
               <div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: '#fff', marginBottom: 4 }}>{r.label}</div>
-                <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>{r.desc}</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--t1)', marginBottom: 4 }}>{r.label}</div>
+                <div style={{ fontSize: 12, color: 'var(--t2)', lineHeight: 1.5 }}>{r.desc}</div>
               </div>
               <span className="btn btn--primary" style={{
                 padding: '6px 16px', fontSize: 12, whiteSpace: 'nowrap', flexShrink: 0,

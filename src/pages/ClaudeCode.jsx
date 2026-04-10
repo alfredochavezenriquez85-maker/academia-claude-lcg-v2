@@ -320,14 +320,14 @@ export default function ClaudeCode() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {resources.map((r, i) => (
             <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" className="link-card" style={{
-              background: 'rgba(255,255,255,0.04)', borderRadius: 12, padding: '20px 24px',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'var(--card)', borderRadius: 12, padding: '20px 24px',
+              border: '1px solid var(--border)',
               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               gap: 16, textDecoration: 'none',
             }}>
               <div>
-                <div style={{ fontSize: 15, fontWeight: 700, color: '#fff', marginBottom: 4 }}>{r.label}</div>
-                <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>{r.desc}</div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--t1)', marginBottom: 4 }}>{r.label}</div>
+                <div style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.5 }}>{r.desc}</div>
               </div>
               <span className="btn btn--primary" style={{ padding: '8px 18px', fontSize: 12, flexShrink: 0 }}>
                 Abrir

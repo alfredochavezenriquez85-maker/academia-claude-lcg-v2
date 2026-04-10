@@ -25,7 +25,7 @@ export default function Header() {
       <header className="header">
         <NavLink to="/" className="header__logo">
           <img
-            src={`${import.meta.env.BASE_URL}logo-light.png`}
+            src={`${import.meta.env.BASE_URL}logo-green.png`}
             alt="London Consulting Group"
           />
         </NavLink>
