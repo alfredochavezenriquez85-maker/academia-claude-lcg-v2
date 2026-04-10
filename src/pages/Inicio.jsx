@@ -17,7 +17,7 @@ export default function Inicio() {
           background: 'radial-gradient(circle, rgba(0,200,83,0.12) 0%, transparent 70%)',
         }} />
         <div style={{ position: 'relative' }}>
-          <img src="/logo-light.png" alt="London Consulting Group" style={{ height: 40, objectFit: 'contain' }} />
+          <img src={`${import.meta.env.BASE_URL}logo-light.png`} alt="London Consulting Group" style={{ height: 40, objectFit: 'contain' }} />
           <h1 style={{ margin: 0, fontSize: 42, fontWeight: 800, lineHeight: 1.1, maxWidth: 600 }}>
             Academia de IA
             <br />

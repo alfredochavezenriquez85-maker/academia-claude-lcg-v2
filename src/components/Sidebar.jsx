@@ -27,7 +27,7 @@ export default function Sidebar() {
       {/* Logo LCG */}
       <div style={{ padding: '0 18px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <img
-          src="/logo-light.png"
+          src={`${import.meta.env.BASE_URL}logo-light.png`}
           alt="London Consulting Group"
           style={{ width: '100%', maxWidth: 200, objectFit: 'contain' }}
         />
