@@ -1,0 +1,71 @@
+:root {
+  /* Brand */
+  --lcg-green: #00C853;
+  --lcg-black: #1A1A1A;
+
+  /* Surfaces */
+  --bg: #F5F3EF;
+  --card: #FFFFFF;
+  --border: #E5E1DB;
+  --nav-bg: #000000;
+
+  /* Text */
+  --t1: #1A1A1A;
+  --t2: #6B6B6B;
+
+  /* Track colors */
+  --track-1: #2D6A4F;
+  --track-2: #7B2CBF;
+  --track-3: #B8860B;
+  --track-4: #C2185B;
+  --managed-agents: #0EA5E9;
+
+  /* Spacing */
+  --sidebar-w: 260px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Abadi', 'Segoe UI', 'Calibri', sans-serif;
+  background: var(--bg);
+  color: var(--t1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+}
+
+button {
+  font-family: 'Abadi', 'Segoe UI', 'Calibri', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
