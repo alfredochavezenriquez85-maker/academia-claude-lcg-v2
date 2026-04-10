@@ -1,123 +1,192 @@
 export default function ClaudeCowork() {
-  const features = [
+  const coreCapabilities = [
     {
-      title: 'Task Loop autónomo',
-      desc: 'Le asignas una carpeta, describes la tarea y Claude planifica y ejecuta pasos sin intervención constante. Reorganiza archivos, crea reportes desde notas, extrae datos de screenshots, genera presentaciones. Trabaja paso a paso, te muestra el plan y avanza.',
-      tip: 'Apunta Cowork a la carpeta de un proyecto de cliente y pídele: "Revisa todas las notas de campo y genera un resumen ejecutivo de hallazgos por área".',
+      title: 'Ejecucion autonoma orientada a resultados',
+      desc: 'Define el objetivo final y Cowork se encarga del resto. No necesitas descomponer el trabajo en prompts individuales. Claude planifica los pasos, ejecuta secuencialmente y entrega el resultado terminado.',
     },
     {
-      title: 'Plugins y Connectors',
-      desc: 'Se conecta con herramientas web y de escritorio. Connectors para Google Drive, Notion, Slack, y servicios web. Plugins de escritorio para interactuar con apps locales instaladas. Extensible vía MCP servers.',
-      tip: 'Conecta Google Drive para que Cowork acceda directamente a los documentos compartidos del equipo sin descargar nada manualmente.',
+      title: 'Gestion de archivos locales',
+      desc: 'Lee, crea, edita, renombra, clasifica y organiza archivos directamente en tu maquina. Word, Excel, PDFs, imagenes, texto plano, presentaciones. Opera sobre tu filesystem sin necesidad de subir nada a la nube.',
     },
     {
-      title: 'Browser Automation',
-      desc: 'Cowork puede navegar la web via Chrome para buscar información, llenar formularios, extraer datos de páginas y completar flujos que requieren interacción web. Ve tu pantalla y opera el navegador.',
-      tip: 'Pídele que investigue los últimos reportes financieros públicos de un prospecto y te genere un resumen de highlights.',
+      title: 'Browser Automation via Chrome',
+      desc: 'Navega la web de forma autonoma para buscar informacion, llenar formularios, extraer datos de paginas, completar flujos web y recopilar informacion de multiples fuentes en linea.',
     },
     {
-      title: 'Dispatch (iPhone)',
-      desc: 'Asigna tareas a Cowork desde tu iPhone. Envías la instrucción desde el móvil, Cowork la recibe en tu computadora y ejecuta. Ideal para delegar tareas cuando estás en reuniones o en movimiento.',
-      tip: 'Después de una reunión con el cliente, desde tu iPhone envía: "Procesa las notas de la reunión de hoy y genera el acta con acuerdos y responsables".',
-    },
-    {
-      title: 'Trabajo con archivos locales',
-      desc: 'Lee, crea, edita y organiza archivos en tu máquina directamente. Word, Excel, PDFs, imágenes, texto plano. No necesitas subir nada a una nube — trabaja con tu filesystem local.',
-      tip: 'Apúntalo a una carpeta con exports de Business Central y pídele que consolide los datos en un solo reporte con tendencias por área.',
+      title: 'Dispatch desde iPhone',
+      desc: 'Asigna tareas a Cowork desde tu dispositivo movil. Envia la instruccion desde el iPhone, Cowork la recibe en tu computadora y ejecuta. Delega trabajo mientras estas en reuniones o en movimiento.',
     },
     {
       title: 'Skills reutilizables',
-      desc: 'Define instrucciones en formato Markdown que Cowork aplica automáticamente según el tipo de tarea. Por ejemplo: un skill para formato de reportes LCG, otro para análisis de entrevistas, otro para generar actas de reunión.',
-      tip: 'Crea un skill "reporte-lcg" que defina: estructura del reporte, formato, secciones obligatorias, tono. Cowork lo aplicará en cada reporte automáticamente.',
+      desc: 'Instrucciones en formato Markdown que Cowork aplica automaticamente segun el tipo de tarea. Define plantillas de reportes, formatos de analisis, estructuras de documentos y flujos de trabajo estandarizados.',
+    },
+    {
+      title: 'Plugins y Connectors',
+      desc: 'Conectores para herramientas web (Google Drive, Notion, Slack) y plugins de escritorio para interactuar con aplicaciones locales. Extensible via MCP servers para integraciones personalizadas.',
     },
   ]
 
-  const vs = [
-    { feature: 'Requiere terminal/código', chat: 'No', cowork: 'No', code: 'Sí' },
-    { feature: 'Trabaja con archivos locales', chat: 'No', cowork: 'Sí', code: 'Sí' },
-    { feature: 'Navegación web autónoma', chat: 'No', cowork: 'Sí', code: 'No' },
-    { feature: 'Task loop multi-paso', chat: 'No', cowork: 'Sí', code: 'Sí' },
-    { feature: 'Push a GitHub', chat: 'No', cowork: 'No', code: 'Sí' },
-    { feature: 'Ideal para no-developers', chat: 'Sí', cowork: 'Sí', code: 'No' },
-    { feature: 'Disponible en móvil', chat: 'Sí', cowork: 'Dispatch', code: 'No' },
+  const designPrinciples = [
+    { title: 'Supervision humana', desc: 'Completa tareas de forma autonoma pero las decisiones consequenciales permanecen con el usuario. Transparencia total sobre cada paso ejecutado.' },
+    { title: 'Sin barreras tecnicas', desc: 'No requiere terminal, linea de comandos ni conocimientos de programacion. Disenado para que cualquier profesional del conocimiento lo utilice desde el primer dia.' },
+    { title: 'Contexto local', desc: 'Opera donde ocurre el trabajo real: tu escritorio, tus carpetas, tus aplicaciones. Sin necesidad de migrar archivos a plataformas externas.' },
+    { title: 'Sintesis multi-fuente', desc: 'Mueve informacion entre archivos locales, carpetas y aplicaciones. Sintetiza datos de multiples fuentes en un solo entregable coherente.' },
   ]
 
-  const lcgUseCases = [
-    { title: 'Generación masiva de documentos', desc: 'Apunta Cowork a la carpeta del proyecto con notas, datos y plantillas. Genera presentaciones, reportes ejecutivos, manuales de procedimientos — todo desde archivos locales sin abrir PowerPoint manualmente.' },
-    { title: 'Consolidación de datos', desc: 'Múltiples exports de Excel/CSV de diferentes áreas del cliente. Cowork los consolida, cruza datos, identifica inconsistencias y genera un solo archivo con el análisis integrado.' },
-    { title: 'Creación de entregables desde notas', desc: 'Después de sesiones de trabajo, tomas notas rápidas. Cowork las convierte en documentos estructurados: actas, minutas, resúmenes ejecutivos con formato profesional.' },
-    { title: 'Organización de carpetas de proyecto', desc: 'Cowork puede reorganizar archivos, renombrar según convención, crear estructura de carpetas estándar LCG, y mover documentos a donde corresponde.' },
-    { title: 'Investigación web para propuestas', desc: 'Browser automation para investigar el prospecto, su industria, competidores, noticias recientes. Genera un brief pre-propuesta con toda la información relevante.' },
-    { title: 'Extracción de datos de screenshots', desc: 'Toma capturas de dashboards, reportes o sistemas del cliente. Cowork extrae los datos, los estructura y los pone en formato analizable.' },
+  const useCases = [
+    { category: 'Documentacion', title: 'Generacion de reportes', desc: 'Apunta a una carpeta con datos crudos, notas de campo y archivos de referencia. Cowork genera reportes estructurados, resumenes ejecutivos y documentos con formato profesional.' },
+    { category: 'Documentacion', title: 'Minutas y acciones de reuniones', desc: 'Procesa grabaciones transcritas o notas rapidas y genera actas formales con acuerdos, responsables, fechas limite y puntos pendientes.' },
+    { category: 'Documentacion', title: 'Creacion de presentaciones', desc: 'Ensambla presentaciones a partir de multiples archivos de investigacion, datos y notas. Estructura el contenido con narrativa coherente.' },
+    { category: 'Datos y Analisis', title: 'Extraccion de datos de documentos', desc: 'Parsea documentos densos (contratos, reportes financieros, registros) y extrae informacion estructurada en formatos tabulares utilizables.' },
+    { category: 'Datos y Analisis', title: 'Procesamiento de facturas y gastos', desc: 'Procesa facturas, recibos y reportes de gastos. Extrae montos, categoriza y organiza en hojas de calculo consolidadas.' },
+    { category: 'Datos y Analisis', title: 'Analisis competitivo', desc: 'Browser automation para investigar competidores, precios, posicionamiento y noticias recientes. Compila un brief estructurado con hallazgos.' },
+    { category: 'Operaciones', title: 'Organizacion y archivado de archivos', desc: 'Renombra, clasifica, deduplica y organiza archivos segun convenciones definidas. Crea estructuras de carpetas estandarizadas y migra documentos.' },
+    { category: 'Operaciones', title: 'Entrada de datos y llenado de formularios', desc: 'Automatiza la transferencia de datos entre documentos, formularios y hojas de calculo. Reduce errores manuales en procesos repetitivos.' },
+    { category: 'Operaciones', title: 'Logistica de eventos y viajes', desc: 'Investiga opciones, compara alternativas, organiza itinerarios y genera documentos de planificacion con detalles logisticos completos.' },
+    { category: 'RRHH y Legal', title: 'Procesamiento de documentos HR', desc: 'Filtra y organiza CVs, genera materiales de onboarding, estructura guias de capacitacion y procesa documentacion de personal.' },
+    { category: 'RRHH y Legal', title: 'Revision de contratos', desc: 'Extrae clausulas clave, identifica obligaciones y plazos, genera resumenes comparativos entre versiones de documentos legales.' },
+    { category: 'Consultoria LCG', title: 'Entregables de consultoria', desc: 'Genera presentaciones, manuales de procedimientos y reportes ejecutivos directamente desde archivos locales del proyecto. Sin abrir PowerPoint manualmente.' },
+  ]
+
+  const targetProfiles = [
+    { profile: 'Investigadores y analistas', desc: 'Sintesis de multiples fuentes, revision bibliografica, compilacion de hallazgos en reportes estructurados.' },
+    { profile: 'Profesionales legales', desc: 'Revision de contratos, extraccion de clausulas, organizacion de expedientes y generacion de resumenes.' },
+    { profile: 'Equipos de finanzas', desc: 'Procesamiento de facturas, consolidacion de reportes, extraccion de datos de documentos financieros.' },
+    { profile: 'Operaciones y administracion', desc: 'Organizacion de archivos, entrada de datos, gestion de documentacion y automatizacion de flujos repetitivos.' },
+    { profile: 'Consultores', desc: 'Generacion de entregables, procesamiento de entrevistas, reportes de diagnostico, propuestas desde archivos del proyecto.' },
+    { profile: 'Marketing y comunicacion', desc: 'Investigacion de mercado, creacion de contenido desde briefs, programacion de publicaciones, analisis de competencia.' },
+  ]
+
+  const stats = [
+    { value: 'macOS + Windows', label: 'Disponible en escritorio' },
+    { value: 'GA', label: 'Disponibilidad general desde abril 2026' },
+    { value: '0', label: 'Lineas de codigo requeridas' },
+    { value: 'iPhone', label: 'Dispatch para tareas remotas' },
   ]
 
   const resources = [
-    { label: 'Página de producto', url: 'https://www.anthropic.com/product/claude-cowork', desc: 'Descripción oficial de Claude Cowork por Anthropic.' },
-    { label: 'Curso: Introduction to Claude Cowork', url: 'https://anthropic.skilljar.com/introduction-to-claude-cowork', desc: 'Task loop, plugins, skills, flujos de archivos e investigación. ~1.5 horas.' },
-    { label: 'Webinar: Future of AI at Work', url: 'https://www.anthropic.com/webinars/future-of-ai-at-work-introducing-cowork', desc: 'Webinar oficial de Anthropic presentando Cowork y su visión del trabajo con IA.' },
-    { label: 'Tutorial DataCamp', url: 'https://www.datacamp.com/tutorial/claude-cowork-tutorial', desc: 'Tutorial práctico paso a paso de Claude Cowork por DataCamp.' },
-    { label: 'Anuncio TechCrunch', url: 'https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/', desc: 'Artículo de TechCrunch sobre Cowork: "Claude Code sin el código".' },
+    { label: 'Pagina de producto', url: 'https://www.anthropic.com/product/claude-cowork', desc: 'Descripcion oficial de Claude Cowork por Anthropic.' },
+    { label: 'Curso: Introduction to Claude Cowork', url: 'https://anthropic.skilljar.com/introduction-to-claude-cowork', desc: 'Task loop, plugins, skills, flujos de archivos e investigacion. ~1.5 horas.' },
+    { label: 'Webinar: Future of AI at Work', url: 'https://www.anthropic.com/webinars/future-of-ai-at-work-introducing-cowork', desc: 'Webinar oficial de Anthropic presentando Cowork y su vision del trabajo con IA.' },
+    { label: 'Tutorial DataCamp', url: 'https://www.datacamp.com/tutorial/claude-cowork-tutorial', desc: 'Tutorial practico paso a paso de Claude Cowork por DataCamp.' },
+    { label: 'Articulo TechCrunch', url: 'https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/', desc: 'Cobertura de TechCrunch sobre Cowork como agente de escritorio.' },
   ]
 
   return (
     <div>
       {/* ===== PAGE HERO ===== */}
       <div className="page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-about.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className="page-hero__tag">AGENTE DE ESCRITORIO · macOS + Windows · GA Abril 2026</div>
+        <div className="page-hero__tag">AGENTE DE ESCRITORIO -- macOS + Windows -- GA Abril 2026</div>
         <h1 className="page-hero__title">Claude Cowork</h1>
         <p className="page-hero__desc">
-          Claude Cowork es un agente de escritorio que trabaja directamente con tus archivos y aplicaciones. No necesitas terminal ni saber programar. Le describes una tarea, le apuntas a una carpeta, y Claude planifica y ejecuta los pasos de forma autónoma. Disponible en planes Pro ($20/mes), Team y Enterprise.
+          Agente de escritorio que maneja tareas de forma autonoma. Define el objetivo, apunta a tus archivos y Cowork se encarga del resto: planifica los pasos, trabaja con tus documentos y aplicaciones locales, y entrega resultados terminados. Sin terminal. Sin codigo. Disponible en planes Pro, Team y Enterprise.
         </p>
       </div>
 
-      {/* ===== Key Differentiator — section--cream ===== */}
+      {/* ===== Stats Row — section--cream ===== */}
       <div className="section section--cream">
-        <div className="section__tag">Diferenciador clave</div>
-        <h2 className="section__title">Trabajo con archivos locales sin código</h2>
-        <p className="section__desc">
-          Cowork es la herramienta ideal para consultores que no son técnicos. Mientras Claude Code requiere terminal y conocimientos de programación, Cowork trabaja visualmente con tu escritorio.
-        </p>
-        <div style={{
-          background: '#111', borderRadius: 16, padding: 32,
-          border: '1px solid #333', color: '#fff', maxWidth: 760,
-        }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {[
-              'Le das una carpeta con archivos del proyecto → los lee, analiza y genera entregables',
-              'Navega la web para investigar → extrae información y la estructura',
-              'Trabaja con apps de escritorio → crea documentos, organiza archivos',
-              'Recibe tareas desde tu iPhone vía Dispatch → ejecuta mientras estás en reunión',
-            ].map((item, i) => (
-              <div key={i} style={{ display: 'flex', gap: 12, fontSize: 14, color: 'rgba(255,255,255,0.75)', lineHeight: 1.7 }}>
-                <span style={{ color: 'var(--lcg-green)', fontWeight: 700, flexShrink: 0 }}>→</span>
-                {item}
-              </div>
-            ))}
-          </div>
+        <div className="stats-row">
+          {stats.map((s, i) => (
+            <div key={i} className="stat">
+              <div className="stat__value">{s.value}</div>
+              <div className="stat__label">{s.label}</div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* ===== Features — section--white ===== */}
+      {/* ===== Design Philosophy — section--white ===== */}
       <div className="section section--white">
+        <div className="section__tag">Filosofia de diseno</div>
+        <h2 className="section__title">Principios de Cowork</h2>
+        <p className="section__desc">
+          Cowork esta disenado para profesionales del conocimiento que necesitan resultados, no una interfaz tecnica.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
+          {designPrinciples.map((p, i) => (
+            <div key={i} className="card">
+              <div className="card__body">
+                <h4 className="card__title">{p.title}</h4>
+                <p className="card__desc">{p.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ===== Core Capabilities — section--cream ===== */}
+      <div className="section section--cream">
         <div className="section__tag">Capacidades</div>
         <h2 className="section__title">Funcionalidades principales</h2>
         <p className="section__desc">
-          Todo lo que Cowork puede hacer para acelerar tu trabajo de consultoría sin escribir una línea de código.
+          Herramientas integradas que permiten a Cowork operar de forma autonoma sobre tus archivos, aplicaciones y fuentes de informacion.
         </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-          {features.map((f, i) => (
-            <div key={i} style={{
-              background: 'var(--card)', borderRadius: 14, padding: 28,
-              border: '1px solid var(--border)', borderLeft: '3px solid var(--lcg-green)',
-            }}>
+        <div className="feature-grid">
+          {coreCapabilities.map((f, i) => (
+            <div key={i} className="feature">
               <h4 style={{ margin: '0 0 8px', fontSize: 17, fontWeight: 800 }}>{f.title}</h4>
-              <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: '0 0 14px' }}>{f.desc}</p>
-              <div style={{
-                background: 'rgba(0,200,83,0.06)', border: '1px solid rgba(0,200,83,0.15)',
-                borderRadius: 8, padding: '10px 16px',
-                fontSize: 13, color: 'var(--lcg-green)', fontWeight: 600, lineHeight: 1.6,
-              }}>
-                Tip LCG: {f.tip}
+              <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: 0 }}>{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ===== How It Works — section--white ===== */}
+      <div className="section section--white">
+        <div className="section__tag">Flujo de trabajo</div>
+        <h2 className="section__title">Como funciona Cowork</h2>
+        <p className="section__desc">
+          Un flujo simple de tres pasos que convierte instrucciones en entregables terminados.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 16 }}>
+          {[
+            { step: '1. Define el objetivo', desc: 'Describe la tarea en lenguaje natural y senala los archivos o carpetas relevantes. Cowork analiza el contexto y genera un plan de ejecucion.' },
+            { step: '2. Cowork ejecuta', desc: 'Claude trabaja de forma autonoma: lee archivos, investiga en web, procesa datos, genera documentos. Muestra progreso paso a paso con transparencia total.' },
+            { step: '3. Revisa y ajusta', desc: 'Recibe el entregable terminado. Revisa, solicita ajustes especificos si es necesario. Las decisiones consequenciales siempre pasan por ti.' },
+          ].map((s, i) => (
+            <div key={i} className="card">
+              <div className="card__body">
+                <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--lcg-green)', marginBottom: 10 }}>{s.step}</div>
+                <p style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.7, margin: 0 }}>{s.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ===== Target Profiles — section--cream ===== */}
+      <div className="section section--cream">
+        <div className="section__tag">Perfiles objetivo</div>
+        <h2 className="section__title">Para quien es Cowork</h2>
+        <p className="section__desc">
+          Disenado para profesionales del conocimiento que trabajan con documentos, datos y multiples fuentes de informacion.
+        </p>
+        <div className="card-grid">
+          {targetProfiles.map((tp, i) => (
+            <div key={i} className="card">
+              <div className="card__body">
+                <h4 className="card__title">{tp.profile}</h4>
+                <p className="card__desc">{tp.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ===== Use Cases — section--white ===== */}
+      <div className="section section--white">
+        <div className="section__tag">Aplicaciones</div>
+        <h2 className="section__title">Casos de uso por area profesional</h2>
+        <p className="section__desc">
+          Escenarios diversos donde Cowork genera impacto medible en productividad y calidad de entregables.
+        </p>
+        <div className="card-grid">
+          {useCases.map((uc, i) => (
+            <div key={i} className="card">
+              <div className="card__body">
+                <div className="card__tag">{uc.category}</div>
+                <h4 className="card__title">{uc.title}</h4>
+                <p className="card__desc">{uc.desc}</p>
               </div>
             </div>
           ))}
@@ -129,7 +198,7 @@ export default function ClaudeCowork() {
         <div className="section__tag">Comparativa</div>
         <h2 className="section__title">Chat vs. Cowork vs. Code</h2>
         <p className="section__desc">
-          Elige la interfaz correcta según tu perfil y necesidad.
+          Cada interfaz del ecosistema Claude esta optimizada para un tipo de trabajo diferente.
         </p>
         <div style={{
           borderRadius: 14, overflow: 'hidden',
@@ -139,15 +208,23 @@ export default function ClaudeCowork() {
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
             <thead>
               <tr style={{ background: 'rgba(0,0,0,0.04)', borderBottom: '2px solid var(--border)' }}>
-                <th style={{ padding: '14px 20px', textAlign: 'left', fontWeight: 700, color: 'var(--t1)' }}>Característica</th>
+                <th style={{ padding: '14px 20px', textAlign: 'left', fontWeight: 700, color: 'var(--t1)' }}>Caracteristica</th>
                 <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700, color: 'var(--t2)' }}>Chat</th>
                 <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700, color: 'var(--lcg-green)' }}>Cowork</th>
                 <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700, color: 'var(--t2)' }}>Code</th>
               </tr>
             </thead>
             <tbody>
-              {vs.map((row, i) => (
-                <tr key={i} style={{ borderBottom: i < vs.length - 1 ? '1px solid var(--border)' : 'none' }}>
+              {[
+                { feature: 'Requiere terminal o codigo', chat: 'No', cowork: 'No', code: 'Si' },
+                { feature: 'Trabaja con archivos locales', chat: 'No', cowork: 'Si', code: 'Si' },
+                { feature: 'Navegacion web autonoma', chat: 'No', cowork: 'Si', code: 'No' },
+                { feature: 'Task loop multi-paso', chat: 'No', cowork: 'Si', code: 'Si' },
+                { feature: 'Push a GitHub', chat: 'No', cowork: 'No', code: 'Si' },
+                { feature: 'Ideal para no-developers', chat: 'Si', cowork: 'Si', code: 'No' },
+                { feature: 'Disponible en movil', chat: 'Si', cowork: 'Dispatch', code: 'No' },
+              ].map((row, i, arr) => (
+                <tr key={i} style={{ borderBottom: i < arr.length - 1 ? '1px solid var(--border)' : 'none' }}>
                   <td style={{ padding: '12px 20px', color: 'var(--t2)' }}>{row.feature}</td>
                   <td style={{ padding: '12px 16px', textAlign: 'center', color: 'var(--t2)' }}>{row.chat}</td>
                   <td style={{ padding: '12px 16px', textAlign: 'center', fontWeight: 600, color: 'var(--lcg-green)' }}>{row.cowork}</td>
@@ -159,47 +236,23 @@ export default function ClaudeCowork() {
         </div>
       </div>
 
-      {/* ===== LCG Use Cases — section--cream ===== */}
-      <div className="section section--cream">
-        <div className="section__tag">Aplicaciones</div>
-        <h2 className="section__title">Casos de uso para consultoría LCG</h2>
-        <p className="section__desc">
-          Escenarios reales donde Cowork transforma el trabajo diario del consultor sin necesidad de código.
-        </p>
-        <div className="card-grid">
-          {lcgUseCases.map((uc, i) => (
-            <div key={i} className="card">
-              <div className="card__body">
-                <h4 className="card__title">{uc.title}</h4>
-                <p className="card__desc">{uc.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* ===== Resources — section--dark ===== */}
       <div className="section section--dark">
         <div className="section__tag">Recursos</div>
-        <h2 className="section__title">Recursos y enlaces</h2>
+        <h2 className="section__title" style={{ color: '#fff' }}>Recursos y enlaces</h2>
         <p className="section__desc">
-          Cursos, tutoriales y documentación para dominar Claude Cowork.
+          Cursos oficiales, tutoriales y documentacion para dominar Claude Cowork.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 700 }}>
           {resources.map((r, i) => (
-            <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" style={{
-              background: 'rgba(255,255,255,0.04)', borderRadius: 12, padding: '18px 24px',
-              border: '1px solid rgba(255,255,255,0.08)',
-              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-              gap: 16, textDecoration: 'none', transition: 'background 0.2s',
-            }}>
+            <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" className="link-card">
               <div>
                 <div style={{ fontSize: 14, fontWeight: 700, color: '#fff', marginBottom: 4 }}>{r.label}</div>
                 <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>{r.desc}</div>
               </div>
               <span className="btn btn--primary" style={{
                 padding: '6px 16px', fontSize: 12, whiteSpace: 'nowrap', flexShrink: 0,
-              }}>Abrir ↗</span>
+              }}>Abrir</span>
             </a>
           ))}
         </div>

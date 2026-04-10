@@ -1,155 +1,175 @@
 export default function ClaudeChat() {
-  const features = [
+  const coreCapabilities = [
     {
       title: 'Proyectos',
-      desc: 'Espacios de trabajo con System Prompt personalizado y archivos de referencia. Claude mantiene contexto por cliente, por iniciativa o por equipo. Sube documentos, define instrucciones y todas las conversaciones dentro del proyecto heredan ese contexto.',
-      tip: 'Crea un proyecto por cada cliente o engagement. Define en el System Prompt: quién es el cliente, sector, pilares de diagnóstico, formato de entregables esperado.',
+      desc: 'Espacios de trabajo organizados con System Prompt personalizado y archivos de referencia. Ventana de contexto de 200K tokens (~500 paginas). Claude mantiene contexto persistente dentro de cada proyecto, heredando instrucciones en todas las conversaciones.',
     },
     {
       title: 'Artefactos (Artifacts)',
-      desc: 'Claude genera piezas de contenido interactivas: código ejecutable, documentos, visualizaciones con gráficas, presentaciones, diagramas de flujo, tablas comparativas. Se renderizan en tiempo real, se pueden iterar con feedback y descargar.',
-      tip: 'Pide a Claude que cree un artefacto HTML interactivo con los hallazgos de un diagnóstico. El cliente puede explorar los datos antes de ver un PowerPoint.',
+      desc: 'Genera contenido interactivo renderizado en tiempo real: codigo ejecutable, documentos, visualizaciones con graficas, diagramas, tablas comparativas. Iterable con feedback, descargable, y ahora con soporte para MCP y almacenamiento persistente.',
     },
     {
       title: 'Deep Research',
-      desc: 'Modo de investigación profunda donde Claude realiza decenas de búsquedas web, lee y sintetiza múltiples fuentes, y genera reportes completos con citas y referencias. Ideal para análisis exhaustivos que normalmente tomarían horas.',
-      tip: 'Antes de iniciar un diagnóstico, usa Deep Research para hacer benchmarking sectorial: prácticas de mercado, KPIs de industria, posicionamiento competitivo del prospecto.',
+      desc: 'Investigacion profunda que descompone solicitudes complejas en sub-consultas, investiga cientos de fuentes internas y externas, y compila reportes comprehensivos con citas en 5-45 minutos. Entrega analisis de nivel profesional con referencias verificables.',
     },
     {
-      title: 'Subida de archivos',
-      desc: 'Sube directamente PDFs, documentos Word, hojas de Excel, imágenes, capturas de pantalla y presentaciones PowerPoint. Claude los procesa, extrae información y puede analizarlos, compararlos o sintetizarlos.',
-      tip: 'Sube exports de Business Central (CSV/Excel) y pide a Claude que identifique tendencias, anomalías y áreas de oportunidad. Cruza datos cuantitativos con hallazgos cualitativos.',
+      title: 'Subida y analisis de archivos',
+      desc: 'Procesa directamente PDFs, documentos Word, hojas de Excel, presentaciones PowerPoint, imagenes y capturas de pantalla. Extrae, analiza, compara y sintetiza informacion de multiples archivos simultaneamente.',
     },
     {
-      title: 'Integraciones',
-      desc: 'Conecta Claude con Google Drive, Google Docs, Slack, Notion y herramientas externas vía MCP (Model Context Protocol). Accede a tus archivos de Drive directamente desde la conversación sin descargar nada.',
-      tip: 'Conecta Google Drive para que Claude acceda a los documentos compartidos del cliente y pueda analizarlos sin que tengas que descargarlos uno por uno.',
+      title: 'Integraciones y MCP',
+      desc: 'Conecta con herramientas empresariales via Model Context Protocol: Jira, Confluence, Zapier, Cloudflare, Intercom, Asana, Square, Sentry, PayPal, Linear, Plaid, Google Drive, Slack, Notion. Acceso directo sin descargas.',
     },
     {
-      title: 'Conversación multimodal',
-      desc: 'Claude procesa texto, imágenes, PDFs, diagramas, capturas de pantalla y más. Puedes pegar una captura de un dashboard, una foto de un pizarrón o un diagrama y Claude lo interpreta y analiza.',
-      tip: 'Toma una foto del whiteboard de una sesión de mapeo de procesos y pídele a Claude que lo digitalice como diagrama de flujo en un artefacto.',
+      title: 'Capacidad multimodal',
+      desc: 'Procesa texto, imagenes, PDFs, diagramas, capturas de pantalla y documentos escaneados. Interpreta contenido visual, extrae datos de graficas, analiza diagramas de arquitectura y digitaliza informacion de pizarrones.',
     },
   ]
 
-  const lcgUseCases = [
-    { title: 'Análisis de entrevistas', desc: 'Sube transcripts de entrevistas con stakeholders. Claude sintetiza hallazgos, identifica patrones recurrentes, detecta contradicciones entre entrevistados y genera un resumen ejecutivo.', interface: 'Proyectos + Archivos' },
-    { title: 'Benchmarking pre-diagnóstico', desc: 'Deep Research para investigar prácticas de mercado, KPIs de la industria del cliente, tendencias del sector y posicionamiento competitivo. Reporte con citas antes de iniciar el diagnóstico.', interface: 'Deep Research' },
-    { title: 'Preparación de propuestas', desc: 'Crea un Proyecto con la metodología LCG + contexto del cliente. Claude genera borradores de propuestas técnicas y económicas en formato estándar con recomendaciones fundamentadas.', interface: 'Proyectos + Artefactos' },
-    { title: 'Diseño de procesos AS-IS → TO-BE', desc: 'Describe el proceso actual y Claude propone mejoras con diagramas de flujo interactivos en artefactos HTML. El cliente puede explorar el proceso propuesto.', interface: 'Artefactos' },
-    { title: 'Preparación de licitaciones', desc: 'Deep Research del prospecto, su industria y competidores. Genera análisis FODA, puntos de diferenciación y argumentos personalizados para la propuesta.', interface: 'Deep Research + Proyectos' },
-    { title: 'Knowledge management', desc: 'Proyecto con la base de conocimiento de LCG: metodologías, frameworks, casos de éxito, plantillas. Claude se convierte en asistente de conocimiento interno para todo el equipo.', interface: 'Proyectos' },
+  const comparisonPoints = [
+    { dimension: 'Razonamiento y profundidad', claude: 'Cuestiona supuestos, solicita clarificaciones y profundiza antes de ejecutar. Razonamiento extendido con cadenas de pensamiento visibles.', other: 'Tiende a ejecutar inmediatamente con la primera interpretacion. Menor profundidad en seguimiento de instrucciones complejas.' },
+    { dimension: 'Seguimiento de instrucciones', claude: 'Alta fidelidad a instrucciones largas y detalladas. System Prompts de miles de tokens respetados consistentemente.', other: 'Degradacion progresiva en instrucciones extensas. Menor adherencia a restricciones multiples simultaneas.' },
+    { dimension: 'Herramientas agénticas', claude: 'Ecosistema integrado: Chat, Code (CLI), Cowork (desktop agent), Managed Agents (cloud). Flujo continuo entre interfaces.', other: 'GPTs y Assistants API. Canvas para edicion. Menor integracion entre herramientas agénticas de escritorio y terminal.' },
+    { dimension: 'Contexto', claude: '200K tokens (~500 paginas). Proyectos con System Prompt + archivos de referencia persistentes.', other: '128K tokens en GPT-4o. Custom GPTs con knowledge files.' },
+    { dimension: 'Transparencia', claude: 'Admite limitaciones abiertamente. No fabrica confianza artificial. Indica cuando no tiene certeza.', other: 'Tendencia a responder afirmativamente incluso con informacion insuficiente.' },
+  ]
+
+  const useCases = [
+    { category: 'Estrategia y Analisis', title: 'Planificacion estrategica', desc: 'Analisis FODA, definicion de OKRs, evaluacion de escenarios competitivos, roadmaps de producto. Deep Research para benchmarking sectorial con fuentes verificables.' },
+    { category: 'Estrategia y Analisis', title: 'Inteligencia de mercado', desc: 'Investigacion de industrias, competidores, tendencias regulatorias y oportunidades de mercado. Reportes con citas de fuentes primarias y secundarias.' },
+    { category: 'Contenido y Comunicacion', title: 'Creacion de contenido', desc: 'Copy de marketing, posts de blog, documentacion tecnica, newsletters, comunicados de prensa. Adaptacion de tono y estilo por audiencia.' },
+    { category: 'Contenido y Comunicacion', title: 'Redaccion y comunicacion', desc: 'Emails ejecutivos, presentaciones, propuestas comerciales, reportes para stakeholders. Traduccion y localizacion multilingue.' },
+    { category: 'Legal y Finanzas', title: 'Revision de documentos legales', desc: 'Analisis de contratos, identificacion de clausulas criticas, comparacion de versiones, extraccion de obligaciones y plazos. Artefactos con resumen estructurado.' },
+    { category: 'Legal y Finanzas', title: 'Modelado financiero', desc: 'Analisis de datos en Excel/CSV, identificacion de tendencias, simulacion de escenarios, analisis de sensibilidad. Visualizaciones interactivas de KPIs.' },
+    { category: 'Producto y Tecnologia', title: 'Especificaciones de producto', desc: 'PRDs, user stories, criterios de aceptacion, diagramas de arquitectura. Artefactos interactivos con diagramas de flujo y wireframes.' },
+    { category: 'Producto y Tecnologia', title: 'Soporte y operaciones', desc: 'Templates de respuesta a clientes, bases de conocimiento, documentacion de procesos, guias de troubleshooting, FAQs estructurados.' },
+    { category: 'Educacion y RRHH', title: 'Desarrollo de contenido educativo', desc: 'Curriculos, materiales de capacitacion, evaluaciones, guias de estudio. Artefactos interactivos con quizzes y ejercicios practicos.' },
+    { category: 'Educacion y RRHH', title: 'Gestion de proyectos', desc: 'Planificacion de sprints, matrices RACI, analisis de riesgos, cronogramas. Seguimiento de dependencias y generacion de reportes de status.' },
+    { category: 'Consultoria LCG', title: 'Prediagnostico y discovery', desc: 'Procesamiento de transcripts de entrevistas, benchmarking sectorial con Deep Research, analisis cruzado de hallazgos cualitativos y cuantitativos.' },
+    { category: 'Consultoria LCG', title: 'Propuestas y entregables', desc: 'Proyectos con metodologia LCG + contexto del cliente. Propuestas tecnicas, modelos de madurez, diagramas AS-IS / TO-BE en artefactos interactivos.' },
+  ]
+
+  const stats = [
+    { value: '200K', label: 'Tokens de contexto (~500 paginas)' },
+    { value: '45 min', label: 'Investigacion Deep Research completa' },
+    { value: '15+', label: 'Integraciones MCP disponibles' },
+    { value: '6+', label: 'Formatos de archivo soportados' },
   ]
 
   const resources = [
     { label: 'Ir a Claude.ai', url: 'https://claude.ai', desc: 'Accede a la interfaz web directamente.' },
-    { label: 'Página de producto', url: 'https://www.anthropic.com/product/claude', desc: 'Descripción oficial de Claude por Anthropic.' },
+    { label: 'Pagina de producto', url: 'https://www.anthropic.com/product/claude', desc: 'Descripcion oficial de Claude por Anthropic.' },
     { label: 'Curso Claude 101', url: 'https://anthropic.skilljar.com/claude-101', desc: 'Primeros pasos: prompting, proyectos, artefactos, skills, Deep Research. ~2 horas.' },
-    { label: 'Video: Future of AI at Work', url: 'https://www.anthropic.com/webinars/future-of-ai-at-work-introducing-cowork', desc: 'Webinar de Anthropic: flujo Chat → Code → Cowork y el futuro del trabajo con IA.' },
+    { label: 'AI Fluency Framework', url: 'https://anthropic.skilljar.com/ai-fluency-framework-foundations', desc: 'Fundamentos de fluencia en IA para profesionales.' },
+    { label: 'Video: Future of AI at Work', url: 'https://www.anthropic.com/webinars/future-of-ai-at-work-introducing-cowork', desc: 'Webinar de Anthropic: flujo Chat, Code, Cowork y el futuro del trabajo con IA.' },
+    { label: 'Learn Hub de Anthropic', url: 'https://www.anthropic.com/learn', desc: 'Centro de recursos y aprendizaje oficial de Anthropic.' },
   ]
 
   return (
     <div>
       {/* ===== PAGE HERO ===== */}
       <div className="page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-about.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className="page-hero__tag">INTERFAZ PRINCIPAL · Web + Móvil</div>
-        <h1 className="page-hero__title">Claude.ai — Chat</h1>
+        <div className="page-hero__tag">INTERFAZ PRINCIPAL -- Web + Movil</div>
+        <h1 className="page-hero__title">Claude.ai -- Chat</h1>
         <p className="page-hero__desc">
-          Claude.ai es la interfaz web y móvil principal de Claude. Es un chat conversacional avanzado con capacidades que van mucho más allá de un chatbot: proyectos con contexto persistente, artefactos interactivos, Deep Research para investigación profunda con citas, integraciones con Google Drive, Slack y herramientas externas vía MCP. Soporta subida directa de archivos (PDFs, Word, Excel, imágenes, PowerPoint) para análisis inmediato.
+          La interfaz web y movil principal de Claude. Un asistente conversacional avanzado con proyectos de contexto persistente, artefactos interactivos, Deep Research con citas verificables, procesamiento multimodal de archivos e integraciones empresariales via MCP. Mucho mas que un chatbot: una plataforma de productividad profesional.
         </p>
       </div>
 
-      {/* ===== ChatGPT vs Claude — section--cream ===== */}
+      {/* ===== Stats Row — section--cream ===== */}
       <div className="section section--cream">
-        <div className="section__tag">Perspectiva del equipo</div>
-        <h2 className="section__title">¿Por qué Claude y no ChatGPT?</h2>
-        <p className="section__desc">
-          Basado en la experiencia real del equipo LCG en la sesión de capacitación del 10 de abril 2026:
-        </p>
-        <div style={{
-          background: '#111', borderRadius: 16, padding: 32,
-          border: '1px solid #333', color: '#fff', maxWidth: 760,
-        }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-            {[
-              'Claude cuestiona y hace preguntas para llegar a más profundidad — no ejecuta "a lo tonto". ChatGPT te dice "claro jefe, gran idea" y se pone a ejecutar sin validar.',
-              'Claude es más potente en razonamiento, seguimiento de instrucciones largas y complejidad de análisis.',
-              'La ventaja está en las herramientas agénticas (Cowork, Code, Managed Agents) que OpenAI no tiene al mismo nivel.',
-              'Recomendación del equipo: ChatGPT gratis para cosas rápidas (reescribir un correo). Claude para trabajo serio de consultoría.',
-            ].map((item, i) => (
-              <div key={i} style={{ display: 'flex', gap: 12, fontSize: 14, color: 'rgba(255,255,255,0.75)', lineHeight: 1.7 }}>
-                <span style={{ color: 'var(--lcg-green)', fontWeight: 700, flexShrink: 0 }}>→</span>
-                {item}
-              </div>
-            ))}
-          </div>
+        <div className="stats-row">
+          {stats.map((s, i) => (
+            <div key={i} className="stat">
+              <div className="stat__value">{s.value}</div>
+              <div className="stat__label">{s.label}</div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* ===== Features — section--white ===== */}
+      {/* ===== Core Capabilities — section--white ===== */}
       <div className="section section--white">
         <div className="section__tag">Capacidades</div>
         <h2 className="section__title">Funcionalidades principales</h2>
         <p className="section__desc">
-          Todo lo que necesitas para investigar, analizar y crear entregables de consultoría desde una sola interfaz.
+          Herramientas integradas para investigar, analizar, crear y colaborar desde una sola interfaz.
         </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-          {features.map((f, i) => (
-            <div key={i} style={{
-              background: 'var(--card)', borderRadius: 14, padding: 28,
-              border: '1px solid var(--border)', borderLeft: '3px solid var(--lcg-green)',
-            }}>
+        <div className="feature-grid">
+          {coreCapabilities.map((f, i) => (
+            <div key={i} className="feature">
               <h4 style={{ margin: '0 0 8px', fontSize: 17, fontWeight: 800 }}>{f.title}</h4>
-              <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: '0 0 14px' }}>{f.desc}</p>
-              <div style={{
-                background: 'rgba(0,200,83,0.06)', border: '1px solid rgba(0,200,83,0.15)',
-                borderRadius: 8, padding: '10px 16px',
-                fontSize: 13, color: 'var(--lcg-green)', fontWeight: 600, lineHeight: 1.6,
-              }}>
-                Tip LCG: {f.tip}
+              <p style={{ fontSize: 14, color: 'var(--t2)', lineHeight: 1.7, margin: 0 }}>{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ===== Claude vs ChatGPT — section--cream ===== */}
+      <div className="section section--cream">
+        <div className="section__tag">Comparativa</div>
+        <h2 className="section__title">Claude vs. ChatGPT: comparacion objetiva</h2>
+        <p className="section__desc">
+          Diferencias clave basadas en capacidades tecnicas, arquitectura de producto y experiencia de uso en entornos profesionales.
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          {comparisonPoints.map((cp, i) => (
+            <div key={i} style={{
+              background: 'var(--card)', borderRadius: 14, padding: 24,
+              border: '1px solid var(--border)',
+            }}>
+              <h4 style={{ margin: '0 0 14px', fontSize: 15, fontWeight: 800, color: 'var(--lcg-green)' }}>{cp.dimension}</h4>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+                <div>
+                  <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, color: 'var(--lcg-green)', marginBottom: 6 }}>Claude</div>
+                  <p style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.7, margin: 0 }}>{cp.claude}</p>
+                </div>
+                <div>
+                  <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, color: 'var(--t2)', marginBottom: 6 }}>ChatGPT</div>
+                  <p style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.7, margin: 0 }}>{cp.other}</p>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* ===== Flow Diagram — section--dark ===== */}
-      <div className="section section--dark">
+      {/* ===== Ecosystem Flow — section--white ===== */}
+      <div className="section section--white">
         <div className="section__tag">Ecosistema</div>
-        <h2 className="section__title" style={{ color: '#fff' }}>Flujo: Chat → Code → Cowork → Managed Agents</h2>
+        <h2 className="section__title">Flujo de trabajo: Chat como punto de partida</h2>
         <p className="section__desc">
-          Claude.ai (Chat) es el punto de partida. Aquí conceptualizas, planificas, haces preguntas, defines el CLAUDE.md de tu proyecto. Después escalas:
+          Claude.ai es el punto de entrada al ecosistema. Aqui se conceptualiza, investiga y planifica antes de escalar a herramientas especializadas.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: 14 }}>
           {[
-            { step: '1. Chat', desc: 'Conceptualizar, planificar, investigar con Deep Research, definir el proyecto' },
-            { step: '2. Code', desc: 'Ejecutar: procesar archivos, generar entregables, push a GitHub' },
-            { step: '3. Cowork', desc: 'Trabajo con archivos locales sin terminal — para no-developers' },
-            { step: '4. Managed Agents', desc: 'Ejecución autónoma en la nube a escala — agentes 24/7' },
+            { step: '1. Chat', desc: 'Conceptualizar, investigar con Deep Research, planificar y definir requerimientos del proyecto.' },
+            { step: '2. Code', desc: 'Ejecutar tareas tecnicas: procesar archivos, generar entregables, gestionar repositorios.' },
+            { step: '3. Cowork', desc: 'Trabajo autonomo con archivos locales y aplicaciones de escritorio. Sin terminal.' },
+            { step: '4. Managed Agents', desc: 'Ejecucion autonoma en la nube a escala. Agentes especializados 24/7.' },
           ].map((s, i) => (
-            <div key={i} style={{
-              background: 'rgba(0,200,83,0.06)', borderRadius: 12, padding: 20,
-              border: '1px solid rgba(0,200,83,0.15)',
-            }}>
-              <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--lcg-green)', marginBottom: 8 }}>{s.step}</div>
-              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.6 }}>{s.desc}</div>
+            <div key={i} className="card">
+              <div className="card__body">
+                <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--lcg-green)', marginBottom: 8 }}>{s.step}</div>
+                <div style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.6 }}>{s.desc}</div>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* ===== LCG Use Cases — section--cream ===== */}
+      {/* ===== Use Cases — section--cream ===== */}
       <div className="section section--cream">
         <div className="section__tag">Aplicaciones</div>
-        <h2 className="section__title">Casos de uso para consultoría LCG</h2>
+        <h2 className="section__title">Casos de uso por area profesional</h2>
         <p className="section__desc">
-          Escenarios reales donde Claude.ai acelera el trabajo del consultor en cada fase del engagement.
+          Claude.ai se adapta a multiples funciones y sectores. Estos son escenarios donde la plataforma genera impacto medible.
         </p>
         <div className="card-grid">
-          {lcgUseCases.map((uc, i) => (
+          {useCases.map((uc, i) => (
             <div key={i} className="card">
               <div className="card__body">
-                <div className="card__tag">{uc.interface}</div>
+                <div className="card__tag">{uc.category}</div>
                 <h4 className="card__title">{uc.title}</h4>
                 <p className="card__desc">{uc.desc}</p>
               </div>
@@ -163,25 +183,18 @@ export default function ClaudeChat() {
         <div className="section__tag">Recursos</div>
         <h2 className="section__title" style={{ color: '#fff' }}>Recursos y enlaces</h2>
         <p className="section__desc">
-          Cursos, documentación y herramientas para dominar Claude.ai.
+          Cursos oficiales, documentacion y herramientas para dominar Claude.ai.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 700 }}>
           {resources.map((r, i) => (
-            <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" style={{
-              background: 'rgba(255,255,255,0.04)', borderRadius: 12, padding: '18px 24px',
-              border: '1px solid rgba(255,255,255,0.08)',
-              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-              gap: 16, textDecoration: 'none', transition: 'background 0.2s',
-            }}>
+            <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" className="link-card">
               <div>
                 <div style={{ fontSize: 14, fontWeight: 700, color: '#fff', marginBottom: 4 }}>{r.label}</div>
                 <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>{r.desc}</div>
               </div>
-              <span style={{
-                padding: '6px 16px', borderRadius: 8,
-                background: 'var(--lcg-green)', color: '#fff',
-                fontSize: 12, fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0,
-              }}>Abrir ↗</span>
+              <span className="btn btn--primary" style={{
+                padding: '6px 16px', fontSize: 12, whiteSpace: 'nowrap', flexShrink: 0,
+              }}>Abrir</span>
             </a>
           ))}
         </div>
