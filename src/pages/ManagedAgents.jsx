@@ -13,7 +13,7 @@ export default function ManagedAgents() {
   return (
     <div>
       {/* PAGE HERO */}
-      <div className="page-hero">
+      <div className="page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-about.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="page-hero__tag">Beta publica -- Abril 2026</div>
         <h1 className="page-hero__title">Claude Managed Agents</h1>
         <p className="page-hero__desc">
@@ -74,25 +74,30 @@ export default function ManagedAgents() {
         </div>
       </div>
 
-      {/* PRICING — section--dark */}
-      <div className="section section--dark">
+      {/* PRICING — section--cream with dark card */}
+      <div className="section section--cream">
         <div className="section__tag">Pricing</div>
         <h2 className="section__title">Modelo de precios</h2>
         <p className="section__desc">Pricing transparente basado en uso: tokens + runtime + busquedas web.</p>
-        <div className="stats-row">
-          <div>
-            <div className="stat__label" style={{ color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: 1, fontSize: 11, marginBottom: 8 }}>Tokens</div>
-            <div style={{ fontSize: 15, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>Pricing estandar del API de Claude por modelo</div>
-          </div>
-          <div>
-            <div className="stat__label" style={{ color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: 1, fontSize: 11, marginBottom: 8 }}>Runtime</div>
-            <div className="stat__number">$0.08</div>
-            <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>por session-hour (solo tiempo activo)</div>
-          </div>
-          <div>
-            <div className="stat__label" style={{ color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: 1, fontSize: 11, marginBottom: 8 }}>Web Search</div>
-            <div className="stat__number">$10</div>
-            <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>por 1,000 busquedas web</div>
+        <div style={{
+          background: 'var(--lcg-black)', borderRadius: 16, padding: 40,
+          color: '#fff',
+        }}>
+          <div className="stats-row">
+            <div>
+              <div style={{ color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: 1, fontSize: 11, marginBottom: 8 }}>Tokens</div>
+              <div style={{ fontSize: 15, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>Pricing estandar del API de Claude por modelo</div>
+            </div>
+            <div>
+              <div style={{ color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: 1, fontSize: 11, marginBottom: 8 }}>Runtime</div>
+              <div className="stat__number">$0.08</div>
+              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>por session-hour (solo tiempo activo)</div>
+            </div>
+            <div>
+              <div style={{ color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: 1, fontSize: 11, marginBottom: 8 }}>Web Search</div>
+              <div className="stat__number">$10</div>
+              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>por 1,000 busquedas web</div>
+            </div>
           </div>
         </div>
       </div>

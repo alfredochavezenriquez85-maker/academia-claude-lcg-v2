@@ -51,7 +51,7 @@ export default function ClaudeChat() {
   return (
     <div>
       {/* ===== PAGE HERO ===== */}
-      <div className="page-hero">
+      <div className="page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-about.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="page-hero__tag">INTERFAZ PRINCIPAL · Web + Móvil</div>
         <h1 className="page-hero__title">Claude.ai — Chat</h1>
         <p className="page-hero__desc">
@@ -155,20 +155,6 @@ export default function ClaudeChat() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* ===== Quote — section--white ===== */}
-      <div className="section section--white">
-        <div style={{
-          background: 'rgba(0,200,83,0.06)', border: '1px solid rgba(0,200,83,0.15)', borderRadius: 16,
-          padding: 36, maxWidth: 700,
-        }}>
-          <div style={{ fontSize: 32, color: 'var(--lcg-green)', fontWeight: 800, marginBottom: 8, fontFamily: 'Playfair Display, serif' }}>"</div>
-          <p style={{ fontSize: 16, fontStyle: 'italic', lineHeight: 1.8, margin: '0 0 14px', color: 'var(--t1)' }}>
-            Nosotros nos estamos convirtiendo en editores, no en espectadores. Tenemos que revisar la información, agregar nuestro conocimiento e intuición que ninguna IA tiene hoy.
-          </p>
-          <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--lcg-green)' }}>— Jaime Restrepo, LCG</div>
         </div>
       </div>
 

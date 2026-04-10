@@ -6,7 +6,14 @@ export default function Inicio() {
   return (
     <div>
       {/* HERO */}
-      <div className="hero">
+      <div
+        className="hero"
+        style={{
+          backgroundImage: `url(${import.meta.env.BASE_URL}bg-hero.jpg)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         <div className="hero__content">
           <div className="hero__tag">London Consulting Group</div>
           <h1 className="hero__title">
@@ -28,7 +35,7 @@ export default function Inicio() {
       </div>
 
       {/* STATS */}
-      <div className="section section--dark">
+      <div className="section section--cream">
         <div className="stats-row">
           {[
             { n: '3', l: 'Modelos disponibles', s: 'Opus \u00B7 Sonnet \u00B7 Haiku' },
@@ -38,15 +45,15 @@ export default function Inicio() {
           ].map((s, i) => (
             <div key={i} className="stat">
               <div className="stat__number">{s.n}</div>
-              <div className="stat__label" style={{ color: '#fff' }}>{s.l}</div>
-              <div className="stat__sub" style={{ color: 'rgba(255,255,255,0.35)' }}>{s.s}</div>
+              <div className="stat__label" style={{ color: 'var(--t1)' }}>{s.l}</div>
+              <div className="stat__sub">{s.s}</div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* INTERFACES - Matour card grid */}
-      <div className="section section--cream">
+      {/* INTERFACES - Card grid */}
+      <div className="section section--white">
         <div className="section__tag">Ecosistema Claude</div>
         <h2 className="section__title">Descubre las Interfaces</h2>
         <p className="section__desc">
@@ -75,71 +82,8 @@ export default function Inicio() {
         </div>
       </div>
 
-      {/* CASO REAL DESTACADO */}
-      <div className="section section--dark">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
-          <div>
-            <div className="section__tag">Caso Real LCG</div>
-            <h2 className="section__title" style={{ color: '#fff' }}>
-              Prediagnostico con Claude Code
-            </h2>
-            <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: 24 }}>
-              Fer Sanchez y Fray procesaron entrevistas de una financiera usando Claude Code.
-              El resultado: analisis cruzado con datos, modelos de madurez por pilar Lean,
-              hallazgos priorizados y entregables HTML interactivos — sin PowerPoint manual.
-            </p>
-            <blockquote style={{
-              borderLeft: '3px solid var(--lcg-green)',
-              paddingLeft: 20, fontStyle: 'italic',
-              color: 'rgba(255,255,255,0.6)', fontSize: 15, lineHeight: 1.6,
-            }}>
-              "Nosotros nos estamos convirtiendo en editores, no en espectadores.
-              Tenemos que revisar la informacion, agregar nuestro conocimiento e intuicion
-              que ninguna IA tiene hoy."
-              <div style={{ fontStyle: 'normal', fontWeight: 700, marginTop: 8, color: 'var(--lcg-green)', fontSize: 13 }}>
-                — Jaime Restrepo
-              </div>
-            </blockquote>
-          </div>
-          <div style={{
-            background: '#111', borderRadius: 16, padding: 40,
-            border: '1px solid #333',
-          }}>
-            <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--lcg-green)', marginBottom: 20, letterSpacing: 2, textTransform: 'uppercase' }}>
-              Proceso
-            </div>
-            {[
-              'Crear CLAUDE.md como "cerebro del proyecto"',
-              'Subir transcripts de entrevistas',
-              'Procesamiento automatico por Claude Code',
-              'Documentos HTML interactivos por entrevista',
-              'Iteracion con correcciones hasta quedar bien',
-              'Push a GitHub como pagina web compartible',
-            ].map((step, i) => (
-              <div key={i} style={{
-                display: 'flex', alignItems: 'flex-start', gap: 14,
-                padding: '12px 0',
-                borderBottom: i < 5 ? '1px solid rgba(255,255,255,0.06)' : 'none',
-              }}>
-                <span style={{
-                  minWidth: 28, height: 28, borderRadius: '50%',
-                  background: 'rgba(0,200,83,0.1)', color: 'var(--lcg-green)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 12, fontWeight: 800,
-                }}>
-                  {i + 1}
-                </span>
-                <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', lineHeight: 1.5, paddingTop: 4 }}>
-                  {step}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* EXPLORA */}
-      <div className="section section--white">
+      <div className="section section--cream">
         <div className="section__tag">Aprendizaje</div>
         <h2 className="section__title">Explora el Portal</h2>
         <p className="section__desc">
@@ -170,7 +114,7 @@ export default function Inicio() {
       <div className="section section--dark" style={{ textAlign: 'center' }}>
         <div className="section__tag" style={{ marginLeft: 'auto', marginRight: 'auto' }}>Comienza hoy</div>
         <h2 className="section__title" style={{ color: '#fff', maxWidth: 500, margin: '0 auto 16px' }}>
-          Certifícate en Anthropic Academy
+          Certif&iacute;cate en Anthropic Academy
         </h2>
         <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.45)', maxWidth: 480, margin: '0 auto 32px', lineHeight: 1.7 }}>
           Cursos gratuitos con certificado oficial. Desde Claude 101 hasta Managed Agents.

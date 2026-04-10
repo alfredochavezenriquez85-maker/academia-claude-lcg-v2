@@ -65,7 +65,7 @@ export default function ClaudeAPI() {
   return (
     <div>
       {/* PAGE HERO */}
-      <div className="page-hero">
+      <div className="page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-about.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="page-hero__tag">Acceso programatico -- SDKs en Python, TypeScript, Java, Go</div>
         <h1 className="page-hero__title">Claude API</h1>
         <p className="page-hero__desc">
@@ -125,8 +125,8 @@ export default function ClaudeAPI() {
         </div>
       </div>
 
-      {/* SDKs + CLOUD — section--dark */}
-      <div className="section section--dark">
+      {/* SDKs + CLOUD — section--cream */}
+      <div className="section section--cream">
         <div className="section__tag">SDKs oficiales</div>
         <h2 className="section__title">SDKs y plataformas cloud</h2>
         <p className="section__desc">Integra Claude en cualquier stack tecnologico con SDKs nativos y proveedores cloud.</p>
@@ -134,12 +134,12 @@ export default function ClaudeAPI() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 16, marginBottom: 48 }}>
           {sdks.map((sdk, i) => (
             <a key={i} href={sdk.url} target="_blank" rel="noopener noreferrer" style={{
-              background: 'rgba(255,255,255,0.04)', borderRadius: 14, padding: 24,
-              border: '1px solid rgba(255,255,255,0.08)', textDecoration: 'none',
+              background: 'var(--card)', borderRadius: 14, padding: 24,
+              border: '1px solid var(--border)', textDecoration: 'none',
               borderTop: '3px solid var(--lcg-green)',
             }}>
-              <h4 style={{ margin: '0 0 8px', fontSize: 17, fontWeight: 800, color: '#fff' }}>{sdk.lang}</h4>
-              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5, margin: 0 }}>{sdk.desc}</p>
+              <h4 style={{ margin: '0 0 8px', fontSize: 17, fontWeight: 800, color: 'var(--t1)' }}>{sdk.lang}</h4>
+              <p style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.5, margin: 0 }}>{sdk.desc}</p>
             </a>
           ))}
         </div>
@@ -148,11 +148,11 @@ export default function ClaudeAPI() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 16 }}>
           {platforms.map((p, i) => (
             <div key={i} style={{
-              background: 'rgba(255,255,255,0.04)', borderRadius: 14, padding: 24,
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'var(--card)', borderRadius: 14, padding: 24,
+              border: '1px solid var(--border)',
             }}>
-              <h4 style={{ margin: '0 0 8px', fontSize: 16, fontWeight: 800, color: '#fff' }}>{p.name}</h4>
-              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
+              <h4 style={{ margin: '0 0 8px', fontSize: 16, fontWeight: 800, color: 'var(--t1)' }}>{p.name}</h4>
+              <p style={{ fontSize: 13, color: 'var(--t2)', lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
             </div>
           ))}
         </div>

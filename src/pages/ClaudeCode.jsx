@@ -80,7 +80,7 @@ export default function ClaudeCode() {
   return (
     <div>
       {/* PAGE HERO */}
-      <div className="page-hero">
+      <div className="page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-about.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="page-hero__tag">CLI AGENTICO -- Terminal + VS Code + JetBrains + Desktop + Browser</div>
         <h1 className="page-hero__title">Claude Code</h1>
         <p className="page-hero__desc">
@@ -136,35 +136,6 @@ export default function ClaudeCode() {
         }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: 'var(--lcg-green)', marginBottom: 8, fontFamily: "'Manrope', sans-serif" }}>Resultado</div>
           <p style={{ fontSize: 15, color: 'var(--t1)', lineHeight: 1.7, margin: 0 }}>{caseStudy.result}</p>
-        </div>
-      </div>
-
-      {/* QUOTES — section--white */}
-      <div className="section section--white">
-        <div className="section__tag">Voces del equipo</div>
-        <h2 className="section__title">Lo que dicen los consultores</h2>
-        <div style={{ height: 48 }} />
-        <div className="card-grid">
-          <div style={{
-            background: 'rgba(0,200,83,0.04)', border: '1px solid rgba(0,200,83,0.15)',
-            borderRadius: 16, padding: 28,
-          }}>
-            <div style={{ fontSize: 36, color: 'var(--lcg-green)', fontWeight: 800, lineHeight: 1, marginBottom: 12, fontFamily: "'Playfair Display', serif" }}>&ldquo;</div>
-            <p style={{ fontSize: 15, fontStyle: 'italic', lineHeight: 1.75, margin: '0 0 16px', color: 'var(--t1)' }}>
-              Nosotros nos estamos convirtiendo en editores, no en espectadores. Tenemos que revisar la informacion, agregar nuestro conocimiento e intuicion que ninguna IA tiene hoy.
-            </p>
-            <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--lcg-green)' }}>— Jaime Restrepo</div>
-          </div>
-          <div style={{
-            background: 'rgba(0,200,83,0.04)', border: '1px solid rgba(0,200,83,0.15)',
-            borderRadius: 16, padding: 28,
-          }}>
-            <div style={{ fontSize: 36, color: 'var(--lcg-green)', fontWeight: 800, lineHeight: 1, marginBottom: 12, fontFamily: "'Playfair Display', serif" }}>&ldquo;</div>
-            <p style={{ fontSize: 15, fontStyle: 'italic', lineHeight: 1.75, margin: '0 0 16px', color: 'var(--t1)' }}>
-              El ahorro de tiempo es exponencial. No es un texto bonito ni un formato — es analisis cruzado con datos, oportunidades enlistadas y priorizadas. Es oro puro para nosotros.
-            </p>
-            <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--lcg-green)' }}>— Fray</div>
-          </div>
         </div>
       </div>
 

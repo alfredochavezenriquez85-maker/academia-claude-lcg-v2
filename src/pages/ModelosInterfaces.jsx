@@ -36,7 +36,7 @@ export default function ModelosInterfaces() {
   return (
     <div>
       {/* Hero */}
-      <div className="page-hero">
+      <div className="page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-about.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="page-hero__tag">Ecosistema Claude</div>
         <h1 className="page-hero__title">Modelos & Interfaces</h1>
         <p className="page-hero__desc">
@@ -98,7 +98,7 @@ export default function ModelosInterfaces() {
       </div>
 
       {/* Interfaces */}
-      <div className="section section--dark">
+      <div className="section section--cream">
         <div className="section__tag">Interfaces</div>
         <h2 className="section__title">Interfaces de acceso</h2>
         <p className="section__desc">
@@ -108,7 +108,7 @@ export default function ModelosInterfaces() {
           {interfaces.map((iface, i) => (
             <div
               key={i}
-              className="card card--dark"
+              className="card"
               onClick={() => navigate(iface.path)}
               style={{ cursor: 'pointer' }}
               role="button"
@@ -121,8 +121,8 @@ export default function ModelosInterfaces() {
                 <h3 className="card__title">{iface.name}</h3>
                 <p className="card__desc">{iface.desc}</p>
                 <div style={{ fontSize: 13, margin: '12px 0 16px' }}>
-                  <span style={{ fontWeight: 700, color: '#fff' }}>Para: </span>
-                  <span style={{ color: 'rgba(255,255,255,0.45)' }}>{iface.for}</span>
+                  <span style={{ fontWeight: 700, color: 'var(--t1)' }}>Para: </span>
+                  <span style={{ color: 'var(--t2)' }}>{iface.for}</span>
                 </div>
                 <span className="btn btn--primary" style={{ fontSize: 12, padding: '8px 20px' }}>
                   Ver detalle →

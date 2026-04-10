@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { to: '/claude-api', label: 'API' },
   { to: '/managed-agents', label: 'Agents' },
   { to: '/conceptos', label: 'Conceptos' },
+  { to: '/capacitacion', label: 'Capacitacion' },
 ]
 
 export default function Header() {

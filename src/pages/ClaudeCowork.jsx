@@ -62,7 +62,7 @@ export default function ClaudeCowork() {
   return (
     <div>
       {/* ===== PAGE HERO ===== */}
-      <div className="page-hero">
+      <div className="page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-about.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="page-hero__tag">AGENTE DE ESCRITORIO · macOS + Windows · GA Abril 2026</div>
         <h1 className="page-hero__title">Claude Cowork</h1>
         <p className="page-hero__desc">
@@ -124,33 +124,34 @@ export default function ClaudeCowork() {
         </div>
       </div>
 
-      {/* ===== Comparison Table — section--dark ===== */}
-      <div className="section section--dark">
+      {/* ===== Comparison Table — section--cream ===== */}
+      <div className="section section--cream">
         <div className="section__tag">Comparativa</div>
-        <h2 className="section__title" style={{ color: '#fff' }}>Chat vs. Cowork vs. Code</h2>
+        <h2 className="section__title">Chat vs. Cowork vs. Code</h2>
         <p className="section__desc">
           Elige la interfaz correcta según tu perfil y necesidad.
         </p>
         <div style={{
           borderRadius: 14, overflow: 'hidden',
-          border: '1px solid rgba(255,255,255,0.1)',
+          border: '1px solid var(--border)',
+          background: 'var(--card)',
         }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
             <thead>
-              <tr style={{ background: 'rgba(255,255,255,0.06)', borderBottom: '2px solid rgba(255,255,255,0.1)' }}>
-                <th style={{ padding: '14px 20px', textAlign: 'left', fontWeight: 700, color: '#fff' }}>Característica</th>
-                <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700, color: 'rgba(255,255,255,0.6)' }}>Chat</th>
+              <tr style={{ background: 'rgba(0,0,0,0.04)', borderBottom: '2px solid var(--border)' }}>
+                <th style={{ padding: '14px 20px', textAlign: 'left', fontWeight: 700, color: 'var(--t1)' }}>Característica</th>
+                <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700, color: 'var(--t2)' }}>Chat</th>
                 <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700, color: 'var(--lcg-green)' }}>Cowork</th>
-                <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700, color: 'rgba(255,255,255,0.6)' }}>Code</th>
+                <th style={{ padding: '14px 16px', textAlign: 'center', fontWeight: 700, color: 'var(--t2)' }}>Code</th>
               </tr>
             </thead>
             <tbody>
               {vs.map((row, i) => (
-                <tr key={i} style={{ borderBottom: i < vs.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
-                  <td style={{ padding: '12px 20px', color: 'rgba(255,255,255,0.55)' }}>{row.feature}</td>
-                  <td style={{ padding: '12px 16px', textAlign: 'center', color: 'rgba(255,255,255,0.5)' }}>{row.chat}</td>
+                <tr key={i} style={{ borderBottom: i < vs.length - 1 ? '1px solid var(--border)' : 'none' }}>
+                  <td style={{ padding: '12px 20px', color: 'var(--t2)' }}>{row.feature}</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'center', color: 'var(--t2)' }}>{row.chat}</td>
                   <td style={{ padding: '12px 16px', textAlign: 'center', fontWeight: 600, color: 'var(--lcg-green)' }}>{row.cowork}</td>
-                  <td style={{ padding: '12px 16px', textAlign: 'center', color: 'rgba(255,255,255,0.5)' }}>{row.code}</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'center', color: 'var(--t2)' }}>{row.code}</td>
                 </tr>
               ))}
             </tbody>
@@ -177,8 +178,8 @@ export default function ClaudeCowork() {
         </div>
       </div>
 
-      {/* ===== Resources — section--white ===== */}
-      <div className="section section--white">
+      {/* ===== Resources — section--dark ===== */}
+      <div className="section section--dark">
         <div className="section__tag">Recursos</div>
         <h2 className="section__title">Recursos y enlaces</h2>
         <p className="section__desc">
@@ -187,19 +188,17 @@ export default function ClaudeCowork() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 700 }}>
           {resources.map((r, i) => (
             <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" style={{
-              background: 'var(--card)', borderRadius: 12, padding: '18px 24px',
-              border: '1px solid var(--border)',
+              background: 'rgba(255,255,255,0.04)', borderRadius: 12, padding: '18px 24px',
+              border: '1px solid rgba(255,255,255,0.08)',
               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               gap: 16, textDecoration: 'none', transition: 'background 0.2s',
             }}>
               <div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--t1)', marginBottom: 4 }}>{r.label}</div>
-                <div style={{ fontSize: 12, color: 'var(--t2)', lineHeight: 1.5 }}>{r.desc}</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: '#fff', marginBottom: 4 }}>{r.label}</div>
+                <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>{r.desc}</div>
               </div>
-              <span style={{
-                padding: '6px 16px', borderRadius: 8,
-                background: 'var(--lcg-green)', color: '#fff',
-                fontSize: 12, fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0,
+              <span className="btn btn--primary" style={{
+                padding: '6px 16px', fontSize: 12, whiteSpace: 'nowrap', flexShrink: 0,
               }}>Abrir ↗</span>
             </a>
           ))}

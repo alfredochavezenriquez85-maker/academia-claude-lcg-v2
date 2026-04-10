@@ -20,7 +20,7 @@ export default function ConceptosClave() {
   return (
     <div>
       {/* PAGE HERO */}
-      <div className="page-hero">
+      <div className="page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-about.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="page-hero__tag">Vocabulario esencial</div>
         <h1 className="page-hero__title">Conceptos Clave</h1>
         <p className="page-hero__desc">

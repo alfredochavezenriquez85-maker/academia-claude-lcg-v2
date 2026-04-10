@@ -19,7 +19,7 @@ export default function QueEsClaude() {
   return (
     <div>
       {/* Hero */}
-      <div className="page-hero">
+      <div className="page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-about.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="page-hero__tag">Ecosistema Claude</div>
         <h1 className="page-hero__title">¿Qué es Claude?</h1>
         <p className="page-hero__desc">
